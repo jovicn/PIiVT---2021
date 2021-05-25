@@ -1,24 +1,43 @@
 import * as express from 'express';
 import * as cors from "cors";
 import Config from './config/dev';
-import BazenService from './components/bazen/service';
-import BazenController from './components/bazen/controller';
-
-const application: express.Application = express();
-
-
-application.use(cors());
-application.use(express.json());
+import BazenRouter from './components/bazen/router';
+import * as mysql2 from 'mysql2/promise';
+import IApplicationResorces from './common/IApplicationResorces.interface';
 
 
-const bazenService: BazenService = new BazenService();
-const bazenController: BazenController = new BazenController(bazenService);
+async function main() {
 
-application.get("/bazen", bazenController.getAll.bind(bazenController));
+    const application: express.Application = express();
 
 
-application.use((req, res) => {
-    res.sendStatus(404);
-});
+    application.use(cors());
+    application.use(express.json());
 
-application.listen(Config.server.port);
+    const resources: IApplicationResorces = {
+        db: await mysql2.createConnection({
+            host: Config.database.host,
+            port: Config.database.port,
+            user: Config.database.user,
+            password: Config.database.password,
+            database: Config.database.database,
+            charset: Config.database.charset,
+            timezone: Config.database.timezone,
+            supportBigNumbers: true,
+        }),
+    }
+
+    resources.db.connect();
+
+    BazenRouter.setupRouts(application, resources);
+
+
+    application.use((req, res) => {
+        res.sendStatus(404);
+    });
+
+    application.listen(Config.server.port);
+
+}
+
+main();
