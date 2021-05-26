@@ -4,6 +4,7 @@ import Config from './config/dev';
 import BazenRouter from './components/bazen/router';
 import * as mysql2 from 'mysql2/promise';
 import IApplicationResorces from './common/IApplicationResorces.interface';
+import Router from './router';
 
 
 async function main() {
@@ -29,11 +30,17 @@ async function main() {
 
     resources.db.connect();
 
-    BazenRouter.setupRouts(application, resources);
-
+    Router.setupRouter(application,resources,[
+        new BazenRouter(),
+    ]);
+        
 
     application.use((req, res) => {
         res.sendStatus(404);
+    });
+
+    application.use((err, req, res, next) =>{
+        res.status(500);
     });
 
     application.listen(Config.server.port);
