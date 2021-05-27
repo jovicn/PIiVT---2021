@@ -20,8 +20,6 @@ class BazenService extends BaseService<BazenModel>{
         return item;
     }
 
-
-
     public async getAll(): Promise<BazenModel[] | IErrorResponse>{
         return this.getAllFromTable("bazen");
     } 
@@ -77,8 +75,34 @@ class BazenService extends BaseService<BazenModel>{
         });
     }
 
+    public async delete(bazenId: number): Promise<IErrorResponse>{
+        return new Promise<IErrorResponse>(resolve => {
+            const sql = `DELETE FROM bazen WHERE bazen_id = ?;`;
+            this.db.execute(sql,[ bazenId ])
+                .then(async rezultat => {
+                    const deletetInfo: any = rezultat[0];
+                    const obrisaniRedovi: number = +(deletetInfo?.affectedRows);
 
-
+                    if(obrisaniRedovi === 1){
+                        resolve({
+                            errorCode: 0,
+                            errorMessage: "Uspesno obrisano"
+                        });
+                    }else{
+                        resolve({
+                            errorCode: -1,
+                            errorMessage: "Neuspesno obrisano"
+                        })
+                    }
+                }).catch(error => {
+                    resolve({
+                        errorCode: error?.errno,
+                        errorMessage: error?.sqlMessage
+                    });
+                    
+                });       
+        })
+    }
 
 
 

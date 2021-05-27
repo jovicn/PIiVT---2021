@@ -84,7 +84,18 @@ class BazenController {
         res.send(rezultat);
     }
 
+    async deleteById(req: Request, res: Response, next: NextFunction){
+        const id: string = req.params.id;
 
+        const bazenId: number = +id;
+
+        if(bazenId <= 0) {
+            res.status(400).send("Pogresan ID");
+            return;
+        }
+        res.send(await this.bazenService.delete(bazenId));
+
+    }
 
 
 }
