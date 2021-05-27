@@ -14,7 +14,7 @@ class BazenRouter implements IRouter{
         application.get("/bazen", bazenController.getAll.bind(bazenController));
         application.get("/bazen/:id", bazenController.getById.bind(bazenController));
         application.post("/bazen", bazenController.add.bind(bazenController));
-
+        application.put("/bazen/:id", bazenController.edit.bind(bazenController));
     }
 
 }
