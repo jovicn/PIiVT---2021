@@ -84,23 +84,23 @@ export default abstract class BaseService<PovratniModel extends IModel> {
     }
     
 
-    protected async getAllByFiledName(imeTabele: string, filedName: string, filedValur: any): Promise<PovratniModel[]|IErrorResponse>{
+    protected async getAllByFiledName(imeTabele: string, filedName: string, filedValue: any): Promise<PovratniModel[]|IErrorResponse>{
         return new Promise<PovratniModel[] | IErrorResponse>(async (resolve) => {
 
-            const sql: string =`SELECT * FROM ${imeTabele} WHERE ${filedName} = ?;`;
-
-            this.db.execute(sql, [filedName])
-            .then(async (rezultat) =>{
-
+            let sql =`SELECT * FROM ${imeTabele} WHERE ${filedName} = ?;`;
+            
+            this.db.execute(sql, [ filedName ]) 
+            .then(async rezultat => {
+                
                 const rows = rezultat[0];
                 const lista: PovratniModel[] = [];
 
                 if(Array.isArray(rows)){
                     for(const row of rows){
-                        lista.push(await this.adaptiranjeModela(row));
+                        lista.push(await this.adaptiranjeModela(row))
                     }
                 }
-        
+                
                 resolve(lista);
 
             }).catch(error => {

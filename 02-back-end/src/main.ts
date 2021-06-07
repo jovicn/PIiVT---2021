@@ -5,6 +5,7 @@ import BazenRouter from './components/bazen/router';
 import * as mysql2 from 'mysql2/promise';
 import IApplicationResorces from './common/IApplicationResorces.interface';
 import Router from './router';
+import TerminRouter from './components/termin/router';
 
 
 async function main() {
@@ -32,6 +33,7 @@ async function main() {
 
     Router.setupRouter(application,resources,[
         new BazenRouter(),
+        new TerminRouter(),
     ]);
         
 
