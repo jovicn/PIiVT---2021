@@ -3,7 +3,7 @@ import * as mysql2 from 'mysql2/promise';
 import IErrorResponse from '../../common/IErrorResponse.interface';
 import { resolve } from "path/posix";
 import { IAddBazen } from "./dto/AddBazen";
-import BaseService from "../../services/BaseService";
+import BaseService from "../../common/BaseService";
 import { IEditBazen } from "./dto/EditBazen";
 
 class BazenService extends BaseService<BazenModel>{

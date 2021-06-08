@@ -1,13 +1,9 @@
-import BaseService from "../../services/BaseService";
+import BaseService from "../../common/BaseService";
 import TerminModel from './model';
 import IErrorResponse from '../../common/IErrorResponse.interface';
 import { IAddTermin } from "./dto/AddTermin";
 import { IEditTermin } from "./dto/EditTermin";
 import { resolve } from 'path/posix';
-
-
-
-
 
 class TerminService extends BaseService<TerminModel>{
 

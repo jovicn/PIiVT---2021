@@ -8,8 +8,7 @@ class TerminRouter implements IRouter{
 
     public setupRoutes( application: express.Application, resources: IApplicationResorces){
 
-        const terminService: TerminService = new TerminService(resources.db);
-        const terminController: TerminController = new TerminController(terminService);
+        const terminController: TerminController = new TerminController(resources);
 
         application.get("/termini", terminController.getAll.bind(terminController));
         application.get("/termini/:id", terminController.getById.bind(terminController));

@@ -6,6 +6,8 @@ import * as mysql2 from 'mysql2/promise';
 import IApplicationResorces from './common/IApplicationResorces.interface';
 import Router from './router';
 import TerminRouter from './components/termin/router';
+import BazenService from './components/bazen/service';
+import TerminService from './components/termin/service';
 
 
 async function main() {
@@ -17,7 +19,7 @@ async function main() {
     application.use(express.json());
 
     const resources: IApplicationResorces = {
-        db: await mysql2.createConnection({
+            db: await mysql2.createConnection({
             host: Config.database.host,
             port: Config.database.port,
             user: Config.database.user,
@@ -30,6 +32,11 @@ async function main() {
     }
 
     resources.db.connect();
+
+    resources.services = {
+        bazenService: new BazenService(resources),
+        terminService: new TerminService(resources),
+    };
 
     Router.setupRouter(application,resources,[
         new BazenRouter(),

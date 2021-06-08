@@ -4,17 +4,12 @@ import BazenModel from './model';
 import IErrorResponse from '../../common/IErrorResponse.interface';
 import { IAddBazen, IAddBazenValidator } from "./dto/AddBazen";
 import { IEditBazen, IEditBazenValidator } from "./dto/EditBazen";
+import BaseController from "../../common/BaseController";
 
-class BazenController {
-
-    private bazenService: BazenService;
-
-    constructor(bazenService: BazenService){
-        this.bazenService = bazenService;
-    }
+class BazenController extends BaseController{
 
     async getAll(req: Request, res: Response, next: NextFunction) {
-        const bazeni = await this.bazenService.getAll();
+        const bazeni = await this.services.bazenService.getAll();
 
         res.send(bazeni);
     }
@@ -29,7 +24,7 @@ class BazenController {
             return;
         }
 
-        const bazen: BazenModel|null|IErrorResponse =  await this.bazenService.getById(bazenId);
+        const bazen: BazenModel|null|IErrorResponse =  await this.services.bazenService.getById(bazenId);
 
         if(bazen === null){
             res.sendStatus(404);
@@ -53,7 +48,7 @@ class BazenController {
             return;
         }
 
-        const rezultat = await this.bazenService.add(data as IAddBazen);
+        const rezultat = await this.services.bazenService.add(data as IAddBazen);
         res.send(rezultat);
     }
 
@@ -74,7 +69,7 @@ class BazenController {
             return;
         }
 
-        const rezultat = await this.bazenService.edit(bazenId ,data as IEditBazen);
+        const rezultat = await this.services.bazenService.edit(bazenId ,data as IEditBazen);
 
         if(rezultat === null){
             res.sendStatus(404);
@@ -93,7 +88,7 @@ class BazenController {
             res.status(400).send("Pogresan ID");
             return;
         }
-        res.send(await this.bazenService.delete(bazenId));
+        res.send(await this.services.bazenService.delete(bazenId));
 
     }
 

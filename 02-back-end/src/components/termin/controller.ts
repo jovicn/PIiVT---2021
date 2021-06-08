@@ -4,17 +4,12 @@ import TerminModel from './model';
 import IErrorResponse from '../../common/IErrorResponse.interface';
 import { IAddTermin, IAddTerminValidator } from './dto/AddTermin';
 import { IEditTermin, IEditTerminValidator } from './dto/EditTermin';
+import BaseController from '../../common/BaseController';
 
-class TerminController{
-
-    private terminService: TerminService;
-
-    constructor(terminService: TerminService){
-        this.terminService = terminService;
-    }
+class TerminController extends BaseController{
 
     public async getAll(req: Request, res: Response, next: NextFunction) {
-        const termini = await this.terminService.getAll();
+        const termini = await this.services.terminService.getAll();
 
         res.send(termini);
     }
@@ -28,7 +23,7 @@ class TerminController{
             return;
         }
 
-        const rezultat: TerminModel|null|IErrorResponse = await this.terminService.getById(terminId);
+        const rezultat: TerminModel|null|IErrorResponse = await this.services.terminService.getById(terminId);
 
         if(rezultat === null){
             res.sendStatus(404);
@@ -52,7 +47,7 @@ class TerminController{
             return;
         }
 
-        res.send(await this.terminService.add(item as IAddTermin));
+        res.send(await this.services.terminService.add(item as IAddTermin));
     }
 
 
@@ -72,7 +67,7 @@ class TerminController{
         }
 
         
-        const rezultat = await this.terminService.edit(terminId, data as IEditTermin);
+        const rezultat = await this.services.terminService.edit(terminId, data as IEditTermin);
         
         if(rezultat === null){
             res.sendStatus(404);

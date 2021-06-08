@@ -8,8 +8,7 @@ class BazenRouter implements IRouter{
 
     public setupRoutes( application: express.Application, resources: IApplicationResorces){
 
-        const bazenService: BazenService = new BazenService(resources.db);
-        const bazenController: BazenController = new BazenController(bazenService);
+        const bazenController: BazenController = new BazenController(resources);
 
         application.get("/bazen", bazenController.getAll.bind(bazenController));
         application.get("/bazen/:id", bazenController.getById.bind(bazenController));

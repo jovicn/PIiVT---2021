@@ -1,19 +1,25 @@
-import IModel from '../common/IModel.interface';
+import IModel from './IModel.interface';
 import * as mysql2 from 'mysql2/promise';
 import BazenModel from '../components/bazen/model';
-import IErrorResponse from '../common/IErrorResponse.interface';
+import IErrorResponse from './IErrorResponse.interface';
+import IApplicationResorces from './IApplicationResorces.interface';
+import IServices from './IServices.interface';
 
 export default abstract class BaseService<PovratniModel extends IModel> {
 
-    private dbKonekcija: mysql2.Connection;
+    private resources: IApplicationResorces;
+    
 
-    constructor(db:mysql2.Connection){
-        this.dbKonekcija = db;
+    constructor(resources: IApplicationResorces){
+        this.resources = resources;
     }
 
-
     protected get db(): mysql2.Connection{
-        return this.dbKonekcija;
+        return this.resources.db;
+    }
+
+    protected get services(): IServices{
+        return this.resources.services;
     }
 
     protected abstract adaptiranjeModela(data: any): Promise<PovratniModel>;
