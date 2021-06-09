@@ -39,6 +39,13 @@ class TerminController extends BaseController{
 
     }
 
+    public async getTerminsByBazenId(req: Request, res: Response, next: NextFunction){
+        const id: string = req.params.bid;
+        const bazenId: number = +(id);
+        res.send(await this.services.terminService.getTerminsByBazenId(bazenId));
+
+    }
+
     public async add(req: Request, res: Response, next: NextFunction){
         const item = req.body;
 

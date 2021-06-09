@@ -4,6 +4,7 @@ import BazenModel from '../components/bazen/model';
 import IErrorResponse from './IErrorResponse.interface';
 import IApplicationResorces from './IApplicationResorces.interface';
 import IServices from './IServices.interface';
+import IModelAdapterOptions from './IModelAdapterOptions.interface';
 
 export default abstract class BaseService<PovratniModel extends IModel> {
 
@@ -22,11 +23,11 @@ export default abstract class BaseService<PovratniModel extends IModel> {
         return this.resources.services;
     }
 
-    protected abstract adaptiranjeModela(data: any): Promise<PovratniModel>;
+    protected abstract adaptiranjeModela(data: any, options: Partial<IModelAdapterOptions>): Promise<PovratniModel>;
 
 
-    protected async getAllFromTable(imeTabele: string): Promise<PovratniModel[] | IErrorResponse>{
-        
+
+    protected async getAllFromTable<AdapterOptions extends IModelAdapterOptions>(imeTabele: string, options: Partial<AdapterOptions> = {}): Promise<PovratniModel[] | IErrorResponse>{
         return new Promise<PovratniModel[] | IErrorResponse>(async (resolve) => {
 
             const sql: string =`SELECT * FROM ${imeTabele};`;
@@ -39,7 +40,7 @@ export default abstract class BaseService<PovratniModel extends IModel> {
 
                 if(Array.isArray(rows)){
                     for(const row of rows){
-                        lista.push(await this.adaptiranjeModela(row));
+                        lista.push(await this.adaptiranjeModela(row,options));
                     }
                 }
         
@@ -57,8 +58,7 @@ export default abstract class BaseService<PovratniModel extends IModel> {
     }
 
 
-    protected async getByIdFromTable(imeTabele: string, id: number): Promise<PovratniModel|null|IErrorResponse>{
-
+    protected async getByIdFromTable<AdapterOptions extends IModelAdapterOptions>(imeTabele: string, id: number, options: Partial<AdapterOptions> = {}): Promise<PovratniModel|null|IErrorResponse>{
         return new Promise<PovratniModel|null|IErrorResponse>(async resolve => {
 
             const sql: string = `SELECT * FROM ${imeTabele} WHERE ${imeTabele}_id = ?;`;
@@ -77,7 +77,7 @@ export default abstract class BaseService<PovratniModel extends IModel> {
                 }
     
                 resolve(await this.adaptiranjeModela(
-                    rows[0])
+                    rows[0], options)
                     )
 
             }).catch(error => {
@@ -90,12 +90,16 @@ export default abstract class BaseService<PovratniModel extends IModel> {
     }
     
 
-    protected async getAllByFiledName(imeTabele: string, filedName: string, filedValue: any): Promise<PovratniModel[]|IErrorResponse>{
+    protected async getAllByFiledName<AdapterOptions extends IModelAdapterOptions>(imeTabele: string, filedName: string, filedValue: any, options: Partial<AdapterOptions> = {}): Promise<PovratniModel[]|IErrorResponse>{
         return new Promise<PovratniModel[] | IErrorResponse>(async (resolve) => {
 
             let sql =`SELECT * FROM ${imeTabele} WHERE ${filedName} = ?;`;
+
+            if (filedValue === null) {
+                sql = `SELECT * FROM ${imeTabele} WHERE ${filedName} IS NULL;`;
+            }
             
-            this.db.execute(sql, [ filedName ]) 
+            this.db.execute(sql, [ filedValue ]) 
             .then(async rezultat => {
                 
                 const rows = rezultat[0];
@@ -103,7 +107,7 @@ export default abstract class BaseService<PovratniModel extends IModel> {
 
                 if(Array.isArray(rows)){
                     for(const row of rows){
-                        lista.push(await this.adaptiranjeModela(row))
+                        lista.push(await this.adaptiranjeModela(row, options))
                     }
                 }
                 

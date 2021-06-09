@@ -12,6 +12,7 @@ class TerminRouter implements IRouter{
 
         application.get("/termini", terminController.getAll.bind(terminController));
         application.get("/termini/:id", terminController.getById.bind(terminController));
+        application.get("/bazen/:bid/termini", terminController.getTerminsByBazenId.bind(terminController));
         application.post("/termini", terminController.add.bind(terminController));
         application.put("/termini/:id", terminController.edit.bind(terminController));
     }

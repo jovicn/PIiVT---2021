@@ -4,10 +4,18 @@ import IErrorResponse from '../../common/IErrorResponse.interface';
 import { IAddTermin } from "./dto/AddTermin";
 import { IEditTermin } from "./dto/EditTermin";
 import { resolve } from 'path/posix';
+import BazenModel from "../bazen/model";
+import IModelAdapterOptions from "../../common/IModelAdapterOptions.interface";
+
+
+class TerminModelAdapterOptions implements IModelAdapterOptions{
+    loadBazen: boolean = false;
+}
+
 
 class TerminService extends BaseService<TerminModel>{
 
-    protected async adaptiranjeModela(data: any): Promise<TerminModel> {
+    protected async adaptiranjeModela(data: any, options: Partial<TerminModelAdapterOptions>): Promise<TerminModel> {
         const item: TerminModel = new TerminModel();
 
         item.terminId = +(data?.termin_id);
@@ -15,8 +23,9 @@ class TerminService extends BaseService<TerminModel>{
         item.isActive = data?.is_active;
         item.bazenId = +(data?.bazen_id);
 
-        if(item.bazenId === null){
-            return null;
+        if (options.loadBazen) {
+            const rezultat = await this.services.bazenService.getById(item.bazenId);
+            item.bazen = rezultat as BazenModel;
         }
 
         return item;
@@ -26,8 +35,12 @@ class TerminService extends BaseService<TerminModel>{
         return this.getAllFromTable("termin");
     }
 
-    public async getById(terminId: number): Promise<TerminModel | IErrorResponse>{
-        return this.getByIdFromTable("termin", terminId);
+    public async getById(terminId: number, options: Partial<TerminModelAdapterOptions> = {}): Promise<TerminModel | IErrorResponse>{
+        return this.getByIdFromTable("termin", terminId, options);
+    }
+
+    public async getTerminsByBazenId(bazenId: number): Promise<TerminModel[] | IErrorResponse>{
+         return await this.getAllByFiledName("termin", "bazen_id", bazenId);
     }
 
     public async add(data: IAddTermin): Promise<TerminModel|IErrorResponse>{
