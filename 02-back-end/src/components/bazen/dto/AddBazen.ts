@@ -6,6 +6,7 @@ interface IAddBazen {
     adresa: string;
     grad: string;
     brojMesta: number;
+    telefon: string;
 
 }
 
@@ -34,6 +35,10 @@ const IAddBazenValidator = ajv.compile({
             minimum: 5,
             maximum: 700,
         },
+        telefon:{
+            type: "string",
+            pattern:"^[0-9]{9,10}$"
+        },
     },
 
     required: [
@@ -41,6 +46,7 @@ const IAddBazenValidator = ajv.compile({
         "adresa",
         "grad",
         "brojMesta",
+        "telefon",
     ],
 
     additionalProperties: false,

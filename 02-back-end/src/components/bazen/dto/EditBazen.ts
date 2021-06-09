@@ -6,6 +6,7 @@ interface IEditBazen {
     adresa: string;
     grad: string;
     brojMesta: number;
+    telefon: string;
 
 }
 
@@ -34,13 +35,17 @@ const IEditBazenValidator = ajv.compile({
             minimum: 5,
             maximum: 700,
         },
+        telefon:{
+            type: "string",
+            pattern:"^[0-9]{9,10}$"
+        },
     },
 
     required: [
         "ime",
         "adresa",
-        "grad",
         "brojMesta",
+        "telefon",
     ],
 
     additionalProperties: false,

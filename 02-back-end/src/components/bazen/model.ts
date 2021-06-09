@@ -6,6 +6,7 @@ class BazenModel implements IModel {
     adresa: string;
     grad: string;
     brojSlobodnihMesta: number;
+    telefon: string;
 
 }
 

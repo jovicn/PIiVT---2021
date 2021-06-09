@@ -16,6 +16,7 @@ class BazenService extends BaseService<BazenModel>{
         item.adresa = row?.adresa;
         item.grad =  row?.grad;
         item.brojSlobodnihMesta = +(row?.broj_mesta);
+        item.telefon = row?.telefon;
 
         return item;
     }
@@ -30,9 +31,9 @@ class BazenService extends BaseService<BazenModel>{
 
     public async add(data: IAddBazen): Promise<BazenModel | IErrorResponse> {
         return new Promise<BazenModel | IErrorResponse>(async resolve => {
-            const sql = "INSERT bazen SET ime = ?, adresa = ?, grad = ?, broj_mesta = ?;";
+            const sql = "INSERT bazen SET ime = ?, adresa = ?, grad = ?, broj_mesta = ?, telefon = ?;";
 
-            this.db.execute(sql, [ data.ime, data.adresa, data.grad, data.brojMesta])
+            this.db.execute(sql, [ data.ime, data.adresa, data.grad, data.brojMesta, data.telefon])
                 .then(async rezultat => {
                     const insertInfo: any = rezultat[0];
 
@@ -60,9 +61,9 @@ class BazenService extends BaseService<BazenModel>{
         }
 
         return new Promise<BazenModel | IErrorResponse>(async resolve => {
-            const sql = "UPDATE  bazen SET ime = ?, adresa = ?, grad = ?, broj_mesta = ? WHERE bazen_id = ?;";
+            const sql = "UPDATE  bazen SET ime = ?, adresa = ?,  broj_mesta = ?, telefon = ? WHERE bazen_id = ?;";
 
-            this.db.execute(sql, [ data.ime, data.adresa, data.grad, data.brojMesta, bazenId])
+            this.db.execute(sql, [ data.ime, data.adresa, data.brojMesta, data.telefon, bazenId])
                 .then(async rezultat => {
                     resolve(await this.getById(bazenId));
                 })
