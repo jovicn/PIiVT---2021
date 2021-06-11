@@ -12,6 +12,8 @@ import AdministratorService from './components/administrator/service';
 import AdministratorRouter from './components/administrator/router';
 import KorisnikRouter from './components/korisnik/router';
 import KorisnikService from './components/korisnik/service';
+import StranicaService from './components/stranica/service';
+import StranicaRouter from './components/stranica/router';
 
 
 async function main() {
@@ -42,6 +44,7 @@ async function main() {
         terminService: new TerminService(resources),
         administratorService: new AdministratorService(resources),
         korisnikService: new KorisnikService(resources),
+        stranicaService: new StranicaService(resources),
     };
 
     Router.setupRouter(application,resources,[
@@ -49,6 +52,7 @@ async function main() {
         new TerminRouter(),
         new AdministratorRouter(),
         new KorisnikRouter(),
+        new StranicaRouter(),
     ]);
         
 
