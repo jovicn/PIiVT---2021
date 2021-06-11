@@ -3,7 +3,7 @@ import Ajv from "ajv";
 interface IAddTermin {
 
     vreme: string;
-    isActive: "aktivan" | "istekao" | "otkazan";
+    status: "aktivan" | "otkazan";
     bazenId: number;
 }
 
@@ -16,9 +16,9 @@ const IAddTerminValidator = ajv.compile({
             type: "string",
             pattern:"^[0-9]{4}\-[0-9]{2}\-[0-9]{2} [0-9]{2}\:[0-9]{2}\:[0-9]{2}$",
         },
-        isActive:{
+        status:{
             type: "string",
-            pattern: "^(aktivan|istekao|otkazan)$",
+            pattern: "^(aktivan|otkazan)$",
         },
         bazenId:{
             type: "integer",

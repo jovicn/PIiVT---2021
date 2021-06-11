@@ -5,9 +5,10 @@ class TerminModel implements IModel {
 
     terminId: number;
     vreme: string;
-    isActive: "aktivan"|"otkazan"|"istekao";
+    status: "aktivan"|"otkazan";
     bazenId: number;
     bazen: BazenModel | null;
+    brojSlobodnihMesta: number;
 
 }
 

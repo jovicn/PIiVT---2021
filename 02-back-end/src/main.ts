@@ -8,6 +8,8 @@ import Router from './router';
 import TerminRouter from './components/termin/router';
 import BazenService from './components/bazen/service';
 import TerminService from './components/termin/service';
+import AdministratorService from './components/administrator/service';
+import AdministratorRouter from './components/administrator/router';
 
 
 async function main() {
@@ -36,11 +38,13 @@ async function main() {
     resources.services = {
         bazenService: new BazenService(resources),
         terminService: new TerminService(resources),
+        administratorService: new AdministratorService(resources),
     };
 
     Router.setupRouter(application,resources,[
         new BazenRouter(),
         new TerminRouter(),
+        new AdministratorRouter(),
     ]);
         
 

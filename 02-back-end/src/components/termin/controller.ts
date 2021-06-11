@@ -46,8 +46,25 @@ class TerminController extends BaseController{
 
     }
 
+    public async getAllTerminsByKorisnkId(req: Request, res: Response, next: NextFunction){
+        const id: string = req.params.kid;
+        const korisnikId: number = +(id);
+        res.send(await this.services.terminService.getAllTerminsByKorisnkId(korisnikId));
+    }
+
+    public async getBrojSlobodnihMestaByTerminId(req: Request, res: Response, next: NextFunction){
+        const id: string = req.params.tid;
+        const terminId: number = +(id);
+        res.json(await this.services.terminService.getBrojSlobodnihMestaByTerminId(terminId));
+    }
+
     public async add(req: Request, res: Response, next: NextFunction){
         const item = req.body;
+
+        if (new Date(item.vreme).getTime() <= new Date().getTime()) { 
+            res.sendStatus(400);
+            return;
+         }
 
         if(!IAddTerminValidator(item)){
             res.status(400).send(IAddTerminValidator.errors);

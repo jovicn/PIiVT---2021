@@ -20,7 +20,7 @@ class TerminService extends BaseService<TerminModel>{
 
         item.terminId = +(data?.termin_id);
         item.vreme = data?.vreme;
-        item.isActive = data?.is_active;
+        item.status = data?.status;
         item.bazenId = +(data?.bazen_id);
 
         if (options.loadBazen) {
@@ -32,7 +32,7 @@ class TerminService extends BaseService<TerminModel>{
     }
 
     public async getAll(): Promise<TerminModel[] | IErrorResponse>{
-        return this.getAllFromTable("termin");
+        return this.getAllFromTable<TerminModelAdapterOptions>("termin", { loadBazen: true, });
     }
 
     public async getById(terminId: number, options: Partial<TerminModelAdapterOptions> = {}): Promise<TerminModel | IErrorResponse>{
@@ -41,6 +41,43 @@ class TerminService extends BaseService<TerminModel>{
 
     public async getTerminsByBazenId(bazenId: number): Promise<TerminModel[] | IErrorResponse>{
          return await this.getAllByFiledName("termin", "bazen_id", bazenId);
+    }
+
+    public async getAllTerminsByKorisnkId(korisnikId: number, ): Promise<TerminModel[]> {
+        const sql = `SELECT termin.* FROM termin INNER JOIN korisnik_termin ON korisnik_termin.termin_id = termin.termin_id WHERE korisnik_id = ?;`;
+        
+        const [rows, colums] = await this.db.execute(sql, [ korisnikId ])
+            
+            const lista: TerminModel[] = [];
+
+                if(Array.isArray(rows)){
+                    for(const row of rows){
+                        lista.push(await this.adaptiranjeModela(row, {loadBazen: true}));
+                    }
+                }
+                return lista;
+    }
+
+    public async getBrojSlobodnihMestaByTerminId(terminId: number, ): Promise<number> {
+        const sql = `SELECT
+        (
+        (SELECT broj_mesta FROM bazen INNER JOIN termin ON bazen.bazen_id = termin.bazen_id WHERE termin.termin_id = ?)
+        -
+        (SELECT COUNT(korisnik_termin.termin_id) FROM korisnik_termin WHERE termin_id = ? GROUP BY termin_id)
+        ) AS broj_preostalih_slobodnih_mesta
+        FROM termin
+        WHERE
+        termin_id = ?`;
+        
+        const [rows, colums] = await this.db.execute(sql, [ terminId, terminId, terminId ])
+            
+            let brojMesta: number = 0;
+            
+                if(Array.isArray(rows)){
+                  brojMesta = (rows[0] as any)?.broj_preostalih_slobodnih_mesta;  
+                   
+                }
+                return brojMesta;
     }
 
     public async add(data: IAddTermin): Promise<TerminModel|IErrorResponse>{
@@ -74,8 +111,8 @@ class TerminService extends BaseService<TerminModel>{
         }
 
         return new Promise<TerminModel|IErrorResponse>(async resolve => {
-            const sql = `UPDATE termin SET vreme = ?, is_active = ? WHERE termin_id = ?;`;
-            this.db.execute(sql , [ data.vreme, data.isActive, terminId ])
+            const sql = `UPDATE termin SET vreme = ?, status = ? WHERE termin_id = ?;`;
+            this.db.execute(sql , [ data.vreme, data.status, terminId ])
             .then(async rezultat => {
                 resolve(await this.getById(terminId));
             })
