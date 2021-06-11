@@ -10,6 +10,8 @@ import BazenService from './components/bazen/service';
 import TerminService from './components/termin/service';
 import AdministratorService from './components/administrator/service';
 import AdministratorRouter from './components/administrator/router';
+import KorisnikRouter from './components/korisnik/router';
+import KorisnikService from './components/korisnik/service';
 
 
 async function main() {
@@ -39,12 +41,14 @@ async function main() {
         bazenService: new BazenService(resources),
         terminService: new TerminService(resources),
         administratorService: new AdministratorService(resources),
+        korisnikService: new KorisnikService(resources),
     };
 
     Router.setupRouter(application,resources,[
         new BazenRouter(),
         new TerminRouter(),
         new AdministratorRouter(),
+        new KorisnikRouter(),
     ]);
         
 
