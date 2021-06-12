@@ -1,3 +1,16 @@
+import { Algorithm } from "jsonwebtoken";
+
+interface TokenKeyOptions{
+    private: string;
+    public: string;
+    trajanje: number;
+}
+interface TokenOptions{
+    auth:TokenKeyOptions,
+    refresh: TokenKeyOptions,
+    izdavac: string;
+    algorithm: Algorithm;
+}
 interface IConfig{
 
     server: {
@@ -12,7 +25,14 @@ interface IConfig{
          database: string;
          charset: string;
          timezone: string;
-     }
+     },
+
+     auth: {
+         korisnik: TokenOptions,
+         administrator: TokenOptions,
+
+         },
+     
 
 };
 

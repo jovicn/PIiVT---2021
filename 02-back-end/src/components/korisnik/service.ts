@@ -32,6 +32,16 @@ class KorisnikService extends BaseService<KorisnikModel>{
         return await this.getByIdFromTable("korisnik", korisnikId, {}) as KorisnikModel | null;
     }
 
+    public async getByEmail(email: string): Promise<KorisnikModel|null>{
+        const korisnici = await this.getAllByFiledName("korisnik", "email", email);
+        
+        if(!Array.isArray(korisnici) || korisnici.length === 0){
+            return null;
+        }
+
+        return korisnici[0];
+    }
+
     public async add(data: IAddKorisnik): Promise<KorisnikModel | IErrorResponse>{
         return new Promise<KorisnikModel|IErrorResponse>(async resolve => {
 

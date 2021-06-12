@@ -14,6 +14,7 @@ import KorisnikRouter from './components/korisnik/router';
 import KorisnikService from './components/korisnik/service';
 import StranicaService from './components/stranica/service';
 import StranicaRouter from './components/stranica/router';
+import AuthRouter from './components/auth/router';
 
 
 async function main() {
@@ -53,6 +54,7 @@ async function main() {
         new AdministratorRouter(),
         new KorisnikRouter(),
         new StranicaRouter(),
+        new AuthRouter(),
     ]);
         
 
