@@ -1,6 +1,6 @@
 import IModel from "../../common/IModel.interface";
 
-export default class KorisnikModel implements IModel{
+export default class StranicaModel implements IModel{
 
     stranicaId: number;
     naziv: string;

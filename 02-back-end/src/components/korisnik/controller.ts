@@ -2,6 +2,8 @@ import BaseController from '../../common/BaseController';
 import { Request, Response, NextFunction } from "express";
 import { IAddKorisnik, IAddKorisnikValidator } from './dto/IAddKorisnik';
 import { IEditKorisnik, IEditKorisnikValidator } from './dto/IEditKorisnik';
+import KorisnikModel from './model';
+import IErrorResponse from '../../common/IErrorResponse.interface';
 
 export default class KorisnikController extends BaseController{
 
@@ -87,6 +89,19 @@ export default class KorisnikController extends BaseController{
         res.send(rezultat);
     }
 
+    public async register(req: Request, res: Response) {
+        if (!IAddKorisnikValidator(req.body)) {
+            return res.status(400).send(IAddKorisnikValidator.errors);
+        }
 
+        const result: KorisnikModel|IErrorResponse = await this.services.korisnikService.add(req.body as IAddKorisnik);
 
+        if (!(result instanceof KorisnikModel)) {
+            if (result.errorMessage.includes("uq_korisnik_email")) {
+                return res.status(400).send("Nalog sa ovim emailom vec postoji.");
+            }
+
+            return res.status(400).send(result);
+        }
+    }
 }
