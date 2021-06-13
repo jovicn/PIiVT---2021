@@ -22,11 +22,16 @@ class TerminService extends BaseService<TerminModel>{
         item.vreme = data?.vreme;
         item.status = data?.status;
         item.bazenId = +(data?.bazen_id);
-
+        
+        
         if (options.loadBazen) {
+            
             const rezultat = await this.services.bazenService.getById(item.bazenId);
+            item.brojSlobodnihMesta = await this.getBrojSlobodnihMestaByTerminId(item.terminId, rezultat as BazenModel);
             item.bazen = rezultat as BazenModel;
         }
+
+        
 
         return item;
     }
@@ -57,8 +62,29 @@ class TerminService extends BaseService<TerminModel>{
                 }
                 return lista;
     }
+    
 
-    public async getBrojSlobodnihMestaByTerminId(terminId: number, ): Promise<number> {
+    public async getBrojZauzetihMestaByTerminId(terminId: number, ): Promise<number> {
+        const sql = `SELECT COUNT(korisnik_id) AS zauzetihMesta FROM korisnik_termin WHERE termin_id = ?`
+        const [rows, colums] = await this.db.execute(sql, [ terminId]);
+
+
+        return +(rows[0].zauzetihMesta);
+    }
+
+    public async getBrojSlobodnihMestaByTerminId(terminId: number,  bazen: BazenModel): Promise<number> {
+        const termin = await this.getByIdFromTable<TerminModelAdapterOptions>("termin", terminId);
+
+        if(!(termin instanceof TerminModel)){
+            return 0;
+        }
+
+        const brojMesta = bazen.brojSlobodnihMesta;
+        const brojZauzetihMesta = await this.getBrojZauzetihMestaByTerminId(termin.terminId);
+        return brojMesta - brojZauzetihMesta;
+    }
+
+  /*  public async getBrojSlobodnihMestaByTerminId(terminId: number, ): Promise<number> {
         const sql = `SELECT
         (
         (SELECT broj_mesta FROM bazen INNER JOIN termin ON bazen.bazen_id = termin.bazen_id WHERE termin.termin_id = ?)
@@ -78,7 +104,7 @@ class TerminService extends BaseService<TerminModel>{
                    
                 }
                 return brojMesta;
-    }
+    }*/
 
     public async add(data: IAddTermin): Promise<TerminModel|IErrorResponse>{
         return new Promise<TerminModel|IErrorResponse>(resolve =>{

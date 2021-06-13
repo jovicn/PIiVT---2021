@@ -17,14 +17,14 @@ class TerminController extends BaseController{
     public async getById(req: Request, res: Response, next: NextFunction){
         const id: string = req.params.id;
         const terminId: number =+id;
-
+        
         if(terminId <= 0){
             res.sendStatus(400);
             return;
         }
 
-        const rezultat: TerminModel|null|IErrorResponse = await this.services.terminService.getById(terminId);
-
+        const rezultat: TerminModel|null|IErrorResponse = await this.services.terminService.getById(terminId, {loadBazen:true});
+       
         if(rezultat === null){
             res.sendStatus(404);
             return;
@@ -52,11 +52,18 @@ class TerminController extends BaseController{
         res.send(await this.services.terminService.getAllTerminsByKorisnkId(korisnikId));
     }
 
-    public async getBrojSlobodnihMestaByTerminId(req: Request, res: Response, next: NextFunction){
+   /* public async getBrojSlobodnihMestaByTerminId(req: Request, res: Response, next: NextFunction){
         const id: string = req.params.tid;
         const terminId: number = +(id);
         res.json(await this.services.terminService.getBrojSlobodnihMestaByTerminId(terminId));
-    }
+
+    }*/
+
+    /*public async getBrojSlobodnihMestaByTerminId(req: Request, res: Response, next: NextFunction){
+        const id: string = req.params.tid;
+        const terminId: number = +(id);
+        res.json(await this.services.terminService.getBrojSlobodnihMestaByTerminId(terminId));
+    }*/
 
     public async add(req: Request, res: Response, next: NextFunction){
         const item = req.body;
