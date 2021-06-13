@@ -3,6 +3,7 @@ import BazenService from './service';
 import BazenController from './controller';
 import IApplicationResorces from '../../common/IApplicationResorces.interface';
 import IRouter from '../../common/IRouter.interface';
+import AuthMiddleware from "../../middleware/auth.middleware";
 
 class BazenRouter implements IRouter{
 
@@ -10,7 +11,7 @@ class BazenRouter implements IRouter{
 
         const bazenController: BazenController = new BazenController(resources);
 
-        application.get("/bazen", bazenController.getAll.bind(bazenController));
+        application.get("/bazen", AuthMiddleware.getVerifier("administrator", "korisnik"), bazenController.getAll.bind(bazenController));
         application.get("/bazen/:id", bazenController.getById.bind(bazenController));
         application.post("/bazen", bazenController.add.bind(bazenController));
         application.put("/bazen/:id", bazenController.edit.bind(bazenController));
