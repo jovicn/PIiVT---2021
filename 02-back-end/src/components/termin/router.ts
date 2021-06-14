@@ -18,6 +18,7 @@ class TerminRouter implements IRouter{
         application.post("/termini", terminController.add.bind(terminController));
         application.put("/termini/:id", terminController.edit.bind(terminController));
         application.post("/korisnik/:uid/termini/:tid", terminController.rezervacija.bind(terminController));
+        application.delete("/korisnik/:korid/termini/:terid", terminController.otkazivanjeRezervacije.bind(terminController));
     }
 
 }

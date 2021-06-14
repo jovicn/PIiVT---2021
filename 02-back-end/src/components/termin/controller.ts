@@ -148,7 +148,17 @@ class TerminController extends BaseController{
         res.send(await this.services.terminService.rezervacija(korisnikId, terminId));
     }
 
-   
+    async otkazivanjeRezervacije(req: Request, res: Response, next: NextFunction){
+        const korisnikId = +(req.params.korid);
+        const terminId = +(req.params.terid);
+
+        if(korisnikId <= 0 || terminId <= 0) {
+            res.status(400).send("Pogresan ID");
+            return;
+        }
+        res.send(await this.services.terminService.otkazivanjeRezervacije(korisnikId, terminId));
+
+    }
 
 }
 

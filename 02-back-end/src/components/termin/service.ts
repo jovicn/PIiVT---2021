@@ -172,6 +172,35 @@ class TerminService extends BaseService<TerminModel>{
         });
     }
 
+    public async otkazivanjeRezervacije(korisnikId: number, terminId: number): Promise<IErrorResponse>{
+        return new Promise<IErrorResponse>(resolve => {
+            const sql = `DELETE FROM korisnik_termin WHERE korisnik_id = ? AND termin_id = ?;`;
+            this.db.execute(sql,[ korisnikId, terminId ])
+                .then(async rezultat => {
+                    const deletetInfo: any = rezultat[0];
+                    const obrisaniRedovi: number = +(deletetInfo?.affectedRows);
+
+                    if(obrisaniRedovi === 1){
+                        resolve({
+                            errorCode: 0,
+                            errorMessage: "Uspesno obrisano"
+                        });
+                    }else{
+                        resolve({
+                            errorCode: -1,
+                            errorMessage: "Neuspesno obrisano"
+                        })
+                    }
+                }).catch(error => {
+                    resolve({
+                        errorCode: error?.errno,
+                        errorMessage: error?.sqlMessage
+                    });
+                    
+                });       
+        })
+    }
+
 }
 
 export default TerminService;
