@@ -1,2 +1,16 @@
 02-back-end/node_modules/
 02-back-end/dist/
+
+03-front-end/node_modules/
+03-front-end/.pnp
+03-front-end/.pnp.js
+03-front-end/coverage
+03-front-end/build
+03-front-end/.DS_Store
+03-front-end/.env.local
+03-front-end/.env.development.local
+03-front-end/.env.test.local
+03-front-end/.env.production.local
+03-front-end/npm-debug.log*
+03-front-end/yarn-debug.log*
+03-front-end/yarn-error.log*
