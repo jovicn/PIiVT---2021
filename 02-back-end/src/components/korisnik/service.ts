@@ -5,6 +5,9 @@ import KorisnikModel from "./model";
 import IErrorResponse from '../../common/IErrorResponse.interface';
 import * as bcrypt from 'bcrypt';
 import { IEditKorisnik } from "./dto/IEditKorisnik";
+import TerminModel from "../termin/model";
+import { IAddTermin } from "../termin/dto/AddTermin";
+import { resolve } from 'path/posix';
 
 class KorisnikModelAdapterOption implements IModelAdapterOptions{
 
@@ -120,6 +123,7 @@ class KorisnikService extends BaseService<KorisnikModel>{
                     });
                 });
         }
+        
         
 
 }

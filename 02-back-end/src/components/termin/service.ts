@@ -153,6 +153,25 @@ class TerminService extends BaseService<TerminModel>{
         });
     }
 
+    public async rezervacija(korisnikId: number, terminId: number ): Promise<TerminModel | IErrorResponse>{
+        return new Promise<TerminModel|IErrorResponse>(resolve =>{
+            const sql = `INSERT korisnik_termin SET korisnik_id = ?, termin_id = ?;`;
+            this.db.execute(sql, [korisnikId, terminId])
+
+            .then(async rezultat =>{
+                const insertInfo: any = rezultat[0];
+                const noviId: number = +(insertInfo?.insertId);
+                resolve(await this.getById(noviId));
+
+            }).catch(error => {
+                resolve({
+                    errorCode: error?.errno,
+                    errorMessage: error?.sqlMessage
+                });
+            });
+        });
+    }
+
 }
 
 export default TerminService;

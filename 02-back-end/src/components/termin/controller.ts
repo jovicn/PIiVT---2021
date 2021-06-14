@@ -5,6 +5,7 @@ import IErrorResponse from '../../common/IErrorResponse.interface';
 import { IAddTermin, IAddTerminValidator } from './dto/AddTermin';
 import { IEditTermin, IEditTerminValidator } from './dto/EditTermin';
 import BaseController from '../../common/BaseController';
+import KorisnikModel from '../korisnik/model';
 
 class TerminController extends BaseController{
 
@@ -121,6 +122,33 @@ class TerminController extends BaseController{
         res.send(rezultat);
 
     }
+
+    public async rezervacija(req: Request, res: Response, next: NextFunction){
+        const korisnikId = +(req.params.uid);
+        const terminId = +(req.params.tid);
+
+        if(korisnikId < 1 || terminId < 1){
+            res.status(400).send("Nepostojeci id");
+            return;
+        }
+
+        const proveraKorisnika = await this.services.korisnikService.getById(korisnikId);
+
+        if(!(proveraKorisnika instanceof KorisnikModel)){
+            res.status(404).send("Korisnik ne postoji");
+            return;
+        }
+
+        const proveraTermina = await this.services.terminService.getById(terminId);
+        if(!(proveraTermina instanceof TerminModel)){
+            res.status(404).send("Termin ne postoji");
+            return;
+        }
+
+        res.send(await this.services.terminService.rezervacija(korisnikId, terminId));
+    }
+
+   
 
 }
 
