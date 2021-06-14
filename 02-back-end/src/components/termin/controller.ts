@@ -49,7 +49,20 @@ class TerminController extends BaseController{
     public async getAllTerminsByKorisnkId(req: Request, res: Response, next: NextFunction){
         const id: string = req.params.kid;
         const korisnikId: number = +(id);
-        res.send(await this.services.terminService.getAllTerminsByKorisnkId(korisnikId));
+
+        if(korisnikId <= 0){
+            res.sendStatus(400);
+            return;
+        }
+
+        const rez = await this.services.terminService.getAllTerminsByKorisnkId(korisnikId);
+
+        if(rez.length < 1){
+            res.sendStatus(404);
+            return;
+        }
+
+        res.send(rez);
     }
 
    /* public async getBrojSlobodnihMestaByTerminId(req: Request, res: Response, next: NextFunction){

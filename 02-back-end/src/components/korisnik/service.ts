@@ -20,6 +20,7 @@ class KorisnikService extends BaseService<KorisnikModel>{
         item.email = data?.email;
         item.telefon = data?.telefon;
         item.passwordHash = data?.password_hash;
+        item.isActive = +(data?.is_active) === 1;
 
         return item;
     }
@@ -48,7 +49,7 @@ class KorisnikService extends BaseService<KorisnikModel>{
             const passwordHash = bcrypt.hashSync(data.password, 10);
 
             this.db.execute(
-                `INSERT korisnik SET ime = ?, prezime = ?, email = ?, telefon = ?, password_hash = ?;`,
+                `INSERT korisnik SET ime = ?, prezime = ?, email = ?, telefon = ?, password_hash = ?, is_active = 1;`,
                 [data.ime, data.prezime, data.email, data.telefon, passwordHash]
             ).then(async res => {
                 const noviKorisnikId: number = +((res[0] as any)?.insertId);
@@ -77,9 +78,9 @@ class KorisnikService extends BaseService<KorisnikModel>{
 
             const passwordHash = bcrypt.hashSync(data.password, 10);
 
-            const sql = "UPDATE korisnik SET ime = ?, prezime = ?, email = ?, telefon = ?, password_hash = ? WHERE korisnik_id = ?;";
+            const sql = "UPDATE korisnik SET ime = ?, prezime = ?, email = ?, telefon = ?, password_hash = ?, is_active = ? WHERE korisnik_id = ?;";
 
-            this.db.execute(sql, [data.ime, data.prezime, data.email, data.telefon, passwordHash, korisnikId])
+            this.db.execute(sql, [data.ime, data.prezime, data.email, data.telefon, passwordHash, data.isActive ? 1 : 0,korisnikId])
                 .then(async rezultat => {
                     resolve(await this.getById(korisnikId));
                 })
@@ -92,25 +93,32 @@ class KorisnikService extends BaseService<KorisnikModel>{
             });
         }
 
-        public async delete(korisnikId: number): Promise<IErrorResponse> {
-            return new Promise<IErrorResponse>(async resolve => {
-                this.db.execute(
-                    `DELETE FROM korisnik WHERE korisnik_id = ?;`,
-                    [ korisnikId, ]
-                )
-                .then(res => {
-                    resolve({
-                        errorCode: 0,
-                        errorMessage: `Deleted ${(res as any[])[0]?.affectedRows} records.`
-                    });
-                })
-                .catch(error => {
-                    resolve({
-                        errorCode: error?.errno,
-                        errorMessage: error?.sqlMessage
+        public async delete(korisnikId: number): Promise<KorisnikModel | IErrorResponse> {
+            const stariKorisnik = await this.getById(korisnikId);
+    
+            if(stariKorisnik === null){
+                return null;
+            }
+    
+            if(!(stariKorisnik instanceof KorisnikModel)){
+                return null;
+            }
+    
+            return new Promise<KorisnikModel | IErrorResponse>(async resolve => {
+    
+               const sql = "UPDATE korisnik SET is_active = 0  WHERE korisnik_id = ?;";
+    
+                this.db.execute(sql, [ korisnikId ])
+                    .then(async rezultat => {
+                        resolve(await this.getById(korisnikId));
+                    })
+                    .catch(error => {
+                        resolve({
+                            errorCode: error?.errno,
+                            errorMessage: error?.sqlMessage
+                        });
                     });
                 });
-            });
         }
         
 

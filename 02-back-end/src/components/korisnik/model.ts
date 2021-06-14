@@ -8,5 +8,6 @@ export default class KorisnikModel implements IModel{
     email: string;
     telefon: string;
     passwordHash: string;
+    isActive: boolean;
     
 }

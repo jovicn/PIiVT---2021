@@ -125,6 +125,8 @@ class TerminService extends BaseService<TerminModel>{
         });
     }
 
+    
+
     public async edit(terminId: number, data: IEditTermin): Promise<TerminModel|IErrorResponse|null>{
         const stariTermin = await this.getById(terminId);
 

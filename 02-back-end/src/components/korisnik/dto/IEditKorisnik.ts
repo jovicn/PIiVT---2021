@@ -7,6 +7,7 @@ interface IEditKorisnik {
     email: string;
     telefon: string;
     password: string;
+    isActive: boolean;
 }
 
 const ajv = new Ajv();
@@ -39,6 +40,9 @@ const IEditKorisnikValidator = ajv.compile({
             minLength: 5,
             maxLength: 255,
         },
+        isActive: {
+            type: "boolean",
+        },
     },
 
     required: [
@@ -46,7 +50,8 @@ const IEditKorisnikValidator = ajv.compile({
         "prezime",
         "email",
         "telefon",
-        "password"
+        "password",
+        "isActive",
     ],
 
     additionalProperties: false,

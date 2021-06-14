@@ -7,6 +7,7 @@ interface IAddKorisnik {
     email: string;
     telefon: string;
     password: string;
+    isActive: boolean;
 }
 
 const ajv = new Ajv();
