@@ -1,0 +1,5273 @@
+{
+	"info": {
+		"_postman_id": "cda14b97-cc95-4bfe-891a-58baf0a477c3",
+		"name": "Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bazeni",
+			"item": [
+				{
+					"name": "GET svi bazeni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/bazen",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bazen"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET izlistavanje svih bazena",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "553"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"229-zOErSai1C6lyZ3chIwMHGbmqrm0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 May 2021 18:49:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bazenId\": 1,\n        \"ime\": \"Bazen Olimp\",\n        \"adresa\": \"Bulevar Zorana Djindjica 32\",\n        \"grad\": \"Beograd\",\n        \"brojSlobodnihMesta\": 200\n    },\n    {\n        \"bazenId\": 2,\n        \"ime\": \"Bazen Flamingo \",\n        \"adresa\": \"Trg Oslobodnjena 13\",\n        \"grad\": \"Nis\",\n        \"brojSlobodnihMesta\": 200\n    },\n    {\n        \"bazenId\": 3,\n        \"ime\": \"Bazen & Spa Olimpic\",\n        \"adresa\": \"Neznanog junaka 172\",\n        \"grad\": \"Novi Sad\",\n        \"brojSlobodnihMesta\": 250\n    },\n    {\n        \"bazenId\": 4,\n        \"ime\": \"Bazen Singidunum\",\n        \"adresa\": \"Vojvode Misica 57\",\n        \"grad\": \"Beograd\",\n        \"brojSlobodnihMesta\": 300\n    },\n    {\n        \"bazenId\": 5,\n        \"ime\": \"Bazen Nais \",\n        \"adresa\": \"Bulevar Nemanjica 62\",\n        \"grad\": \"Nis\",\n        \"brojSlobodnihMesta\": 230\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET jednog bazena po ID-u",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/bazen/2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bazen",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET jednog bazena po ID-u",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen/3",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"73-GcRCR9yQ+dyi0DcgfGIRQb6qfjg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 May 2021 18:53:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bazenId\": 3,\n    \"ime\": \"Bazen & Spa Olimpic\",\n    \"adresa\": \"Neznanog junaka 172\",\n    \"grad\": \"Novi Sad\",\n    \"brojSlobodnihMesta\": 250\n}"
+						},
+						{
+							"name": "GET jednog bazena po ID-u  sa negativnom vrednoscu",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen/-3",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"-3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFiDB1U+dmqzx9Mo2UjcZ1SJPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 May 2021 18:54:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "GET jednog bazena po nepostojecem ID-u",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen/8",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"8"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 May 2021 18:55:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "POST novog bazena",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"ime\": \"Bazen Ajkula\",\r\n    \"adresa\": \"Adresa 91\",\r\n    \"grad\": \"Nis\",\r\n    \"brojMesta\": 300,\r\n    \"telefon\": \"018457871\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/bazen",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bazen"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST novog bazena sa pogresnim brojem mesta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"ime\": \"Bazen Arena\",\r\n    \"adresa\": \"Sarajevska 42\",\r\n    \"grad\": \"Novi Sad\",\r\n    \"brojMesta\": 0,\r\n    \"telefon\": \"0217894563\",\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/bazen",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-qH8dBGpU1Ng1Hzz/sSWyjQwZqFM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 May 2021 21:21:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/brojMesta\",\n        \"schemaPath\": \"#/properties/brojMesta/minimum\",\n        \"keyword\": \"minimum\",\n        \"params\": {\n            \"comparison\": \">=\",\n            \"limit\": 5\n        },\n        \"message\": \"must be >= 5\"\n    }\n]"
+						},
+						{
+							"name": "POST novog bazena sa namerno pogresnim brojem da bi smo simulirali kasnije edit broja",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"ime\": \"Bazen Delfin\",\r\n    \"adresa\": \"Adresa 32\",\r\n    \"grad\": \"Beograd\",\r\n    \"brojMesta\": 200,\r\n    \"telefon\": \"021457871\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/bazen",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "119"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"77-+IMHhaS0X7NEWhf1crVSGvx9B7Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jun 2021 12:01:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bazenId\": 9,\n    \"ime\": \"Bazen Delfin\",\n    \"adresa\": \"Adresa 32\",\n    \"grad\": \"Beograd\",\n    \"brojSlobodnihMesta\": 200,\n    \"telefon\": \"021457871\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT edit bazena",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ime\": \"Bazen Delfin\",\r\n    \"adresa\": \"Adresa 43\",\r\n    \"grad\": \"Novi Sad\",\r\n    \"brojMesta\": 220,\r\n    \"telefon\": \"021458789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/bazen/9",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bazen",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT edit broja telefona uspesan",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Bazen Delfin\",\r\n    \"adresa\": \"Adresa 43\",\r\n    \"grad\": \"Novi Sad\",\r\n    \"brojMesta\": 220,\r\n    \"telefon\": \"011458789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/bazen/9",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "119"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"77-2fxLDPVsWqnsNaFiMvIBj1WLTfc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jun 2021 12:05:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bazenId\": 9,\n    \"ime\": \"Bazen Delfin\",\n    \"adresa\": \"Adresa 43\",\n    \"grad\": \"Beograd\",\n    \"brojSlobodnihMesta\": 220,\n    \"telefon\": \"011458789\"\n}"
+						},
+						{
+							"name": "PUT edit telefona neuspesan",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Bazen Delfin\",\r\n    \"adresa\": \"Adresa 43\",\r\n    \"grad\": \"Novi Sad\",\r\n    \"brojMesta\": 220,\r\n    \"telefon\": \"02145878911\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/bazen/9",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"9"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b3-McJZRTH3JZ4F8RwPDdgQjFOGNp8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jun 2021 12:08:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/telefon\",\n        \"schemaPath\": \"#/properties/telefon/pattern\",\n        \"keyword\": \"pattern\",\n        \"params\": {\n            \"pattern\": \"^[0-9]{9,10}$\"\n        },\n        \"message\": \"must match pattern \\\"^[0-9]{9,10}$\\\"\"\n    }\n]"
+						},
+						{
+							"name": "PUT pokusaj edita sa nepostojecim IDem bazena",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Bazen Delfin\",\r\n    \"adresa\": \"Adresa 43\",\r\n    \"grad\": \"Novi Sad\",\r\n    \"brojMesta\": 220,\r\n    \"telefon\": \"021458789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/bazen/91",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"91"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jun 2021 12:08:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "DELETE brisanje bazena",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/bazen/8",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bazen",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE neuspesno brisanje bazena jer ne postoji sa tim ID-em",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen/7",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-LtfLyM3TSuUubFunx1za8/MFMNU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 15:53:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": -1,\n    \"errorMessage\": \"Neuspesno obrisano\"\n}"
+						},
+						{
+							"name": "DELETE brisanje bazena uspesno",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen/8",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-qr5SYIA1XS/WZUN4BS1eq8KisXs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 15:55:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Uspesno obrisano\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{API_USER_AUTH_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Termini",
+			"item": [
+				{
+					"name": "GET Svi termini",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/termini",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"termini"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Svi termini",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1974"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7b6-q836j2kvIxmE2+0x+ALUU4ABEDI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:16:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"terminId\": 1,\n        \"vreme\": \"2021-07-10T15:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 1,\n        \"brojSlobodnihMesta\": 198,\n        \"bazen\": {\n            \"bazenId\": 1,\n            \"ime\": \"Bazen Olimp\",\n            \"adresa\": \"Bulevar Zorana Djindjica 32\",\n            \"grad\": \"Beograd\",\n            \"brojSlobodnihMesta\": 200,\n            \"telefon\": \"0112547845\"\n        }\n    },\n    {\n        \"terminId\": 2,\n        \"vreme\": \"2021-07-13T17:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 3,\n        \"brojSlobodnihMesta\": 250,\n        \"bazen\": {\n            \"bazenId\": 3,\n            \"ime\": \"Bazen & Spa Olimpic\",\n            \"adresa\": \"Neznanog junaka 172\",\n            \"grad\": \"Novi Sad\",\n            \"brojSlobodnihMesta\": 250,\n            \"telefon\": \"0214578124\"\n        }\n    },\n    {\n        \"terminId\": 3,\n        \"vreme\": \"2021-07-10T14:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 4,\n        \"brojSlobodnihMesta\": 300,\n        \"bazen\": {\n            \"bazenId\": 4,\n            \"ime\": \"Bazen Singidunum\",\n            \"adresa\": \"Vojvode Misica 57\",\n            \"grad\": \"Beograd\",\n            \"brojSlobodnihMesta\": 300,\n            \"telefon\": \"0112587489\"\n        }\n    },\n    {\n        \"terminId\": 11,\n        \"vreme\": \"2021-07-07T12:00:00.000Z\",\n        \"status\": \"otkazan\",\n        \"bazenId\": 6,\n        \"brojSlobodnihMesta\": 200,\n        \"bazen\": {\n            \"bazenId\": 6,\n            \"ime\": \"Bazen Arena\",\n            \"adresa\": \"Sarajevska 43\",\n            \"grad\": \"Novi Sad\",\n            \"brojSlobodnihMesta\": 200,\n            \"telefon\": \"0214789654\"\n        }\n    },\n    {\n        \"terminId\": 12,\n        \"vreme\": \"2021-07-25T15:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 9,\n        \"brojSlobodnihMesta\": 220,\n        \"bazen\": {\n            \"bazenId\": 9,\n            \"ime\": \"Bazen Delfin\",\n            \"adresa\": \"Adresa 43\",\n            \"grad\": \"Beograd\",\n            \"brojSlobodnihMesta\": 220,\n            \"telefon\": \"011458789\"\n        }\n    },\n    {\n        \"terminId\": 13,\n        \"vreme\": \"2021-07-18T14:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 1,\n        \"brojSlobodnihMesta\": 200,\n        \"bazen\": {\n            \"bazenId\": 1,\n            \"ime\": \"Bazen Olimp\",\n            \"adresa\": \"Bulevar Zorana Djindjica 32\",\n            \"grad\": \"Beograd\",\n            \"brojSlobodnihMesta\": 200,\n            \"telefon\": \"0112547845\"\n        }\n    },\n    {\n        \"terminId\": 14,\n        \"vreme\": \"2021-08-09T09:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 1,\n        \"brojSlobodnihMesta\": 200,\n        \"bazen\": {\n            \"bazenId\": 1,\n            \"ime\": \"Bazen Olimp\",\n            \"adresa\": \"Bulevar Zorana Djindjica 32\",\n            \"grad\": \"Beograd\",\n            \"brojSlobodnihMesta\": 200,\n            \"telefon\": \"0112547845\"\n        }\n    },\n    {\n        \"terminId\": 15,\n        \"vreme\": \"2021-06-07T18:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 6,\n        \"brojSlobodnihMesta\": 200,\n        \"bazen\": {\n            \"bazenId\": 6,\n            \"ime\": \"Bazen Arena\",\n            \"adresa\": \"Sarajevska 43\",\n            \"grad\": \"Novi Sad\",\n            \"brojSlobodnihMesta\": 200,\n            \"telefon\": \"0214789654\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET jednog termina po ID-u",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/termini/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"termini",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET jednog termina sa nepostojecim ID-em",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/termini/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini",
+										"15"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jun 2021 14:29:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						},
+						{
+							"name": "GET jednog termina sa negativnim ID-em",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/termini/-15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini",
+										"-15"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFiDB1U+dmqzx9Mo2UjcZ1SJPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jun 2021 14:30:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "GET jednog termina po ID-u uspesno",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/termini/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "251"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fb-YaSiSOO4r9syr03TdyXqNzw4FQ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:16:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"terminId\": 1,\n    \"vreme\": \"2021-07-10T15:00:00.000Z\",\n    \"status\": \"aktivan\",\n    \"bazenId\": 1,\n    \"brojSlobodnihMesta\": 198,\n    \"bazen\": {\n        \"bazenId\": 1,\n        \"ime\": \"Bazen Olimp\",\n        \"adresa\": \"Bulevar Zorana Djindjica 32\",\n        \"grad\": \"Beograd\",\n        \"brojSlobodnihMesta\": 200,\n        \"telefon\": \"0112547845\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "POST dodavanje novog termina",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vreme\": \"2021-07-07 19:00:00\",\r\n    \"bazenId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/termini",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"termini"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST uspesno dodavanje novog termina",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vreme\": \"2021-07-07 19:00:00\",\r\n    \"bazenId\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-858ZqsexvmjdfbQBjMDZctbQRcA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Jun 2021 14:52:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"terminId\": 11,\n    \"vreme\": \"2021-07-07T18:00:00.000Z\",\n    \"isActive\": \"aktivan\",\n    \"bazenId\": 6\n}"
+						},
+						{
+							"name": "POST neuspesno dodavanje greska je u pogresno formulisanom vremenu",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vreme\": \"2021-07-07 19:00:0\",\r\n    \"bazenId\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-f/4BbAyChPThUlsSpbsWwjRWqP8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Jun 2021 14:53:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/vreme\",\n        \"schemaPath\": \"#/properties/vreme/pattern\",\n        \"keyword\": \"pattern\",\n        \"params\": {\n            \"pattern\": \"^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$\"\n        },\n        \"message\": \"must match pattern \\\"^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$\\\"\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "PUT edit termina",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vreme\": \"2021-07-07 13:00:00\",\r\n    \"isActive\": \"otkazan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/termini/11",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"termini",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT neuspesna promena zbog lose definisanog vremena",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vreme\": \"2021-07-07 17:00:\",\r\n    \"isActive\": \"otkazan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/termini/11",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini",
+										"11"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-f/4BbAyChPThUlsSpbsWwjRWqP8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Jun 2021 15:00:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/vreme\",\n        \"schemaPath\": \"#/properties/vreme/pattern\",\n        \"keyword\": \"pattern\",\n        \"params\": {\n            \"pattern\": \"^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$\"\n        },\n        \"message\": \"must match pattern \\\"^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$\\\"\"\n    }\n]"
+						},
+						{
+							"name": "PUT edit termina uspesan",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vreme\": \"2021-07-07 13:00:00\",\r\n    \"isActive\": \"otkazan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/termini/11",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"termini",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-JqcmJ4NWHUCskeQu/FreKITOlZo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Jun 2021 15:39:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"terminId\": 11,\n    \"vreme\": \"2021-07-07T12:00:00.000Z\",\n    \"isActive\": \"otkazan\",\n    \"bazenId\": 6\n}"
+						}
+					]
+				},
+				{
+					"name": "GET svih termina za odredjeni bazen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/bazen/1/termini",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bazen",
+								"1",
+								"termini"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET svih termina za odredjeni bazen",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/bazen/1/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bazen",
+										"1",
+										"termini"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "252"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fc-GhmQ1BwtIJvPCgOmD6lcEnFddp8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jun 2021 22:18:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"terminId\": 1,\n        \"vreme\": \"2021-07-10T15:00:00.000Z\",\n        \"isActive\": \"aktivan\",\n        \"bazenId\": 1\n    },\n    {\n        \"terminId\": 13,\n        \"vreme\": \"2021-07-18T14:00:00.000Z\",\n        \"isActive\": \"aktivan\",\n        \"bazenId\": 1\n    },\n    {\n        \"terminId\": 14,\n        \"vreme\": \"2021-08-09T09:00:00.000Z\",\n        \"isActive\": \"aktivan\",\n        \"bazenId\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET svih termina za korisnika",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/korisnik/7/termini",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik",
+								"7",
+								"termini"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET svih termina za korisnika",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/7/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"7",
+										"termini"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "253"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fd-YnI2ZuELZzE1ax2Dwd4RVW6mflQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:28:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"terminId\": 1,\n        \"vreme\": \"2021-07-10T15:00:00.000Z\",\n        \"status\": \"aktivan\",\n        \"bazenId\": 1,\n        \"brojSlobodnihMesta\": 198,\n        \"bazen\": {\n            \"bazenId\": 1,\n            \"ime\": \"Bazen Olimp\",\n            \"adresa\": \"Bulevar Zorana Djindjica 32\",\n            \"grad\": \"Beograd\",\n            \"brojSlobodnihMesta\": 200,\n            \"telefon\": \"0112547845\"\n        }\n    }\n]"
+						},
+						{
+							"name": "GET svih termina za korisnika nesupesan negativan ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/-1/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"-1",
+										"termini"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFiDB1U+dmqzx9Mo2UjcZ1SJPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:33:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "GET svih termina za korisnika neuspesan ne postoje termini za taj id Korisnika",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/1/termini",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"1",
+										"termini"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:36:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Administrator",
+			"item": [
+				{
+					"name": "GET svih administratora",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/administrator",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET svih administratora",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a3-CZDQEz2qYv5ptylnmnPUPxGvOu4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:20:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"administratorId\": 1,\n        \"username\": \"jnikola\",\n        \"passwordHash\": \"$2b$10$B39Yv/qOtNN1TUSwk7JC2ezLY/9FSqYQj71nf5e5RbGuNwoIvs2H2\",\n        \"isActive\": true\n    },\n    {\n        \"administratorId\": 3,\n        \"username\": \"jovicnikola\",\n        \"passwordHash\": \"$2b$10$f5UrvLVPoOe6HGpvka0CrOT0GAnMN2nZttlLNXfl1zRKrc7y9k0gu\",\n        \"isActive\": false\n    },\n    {\n        \"administratorId\": 4,\n        \"username\": \"mikamikic\",\n        \"passwordHash\": \"$2b$10$W0Iw4FXvQkX4eCU5Z8yCcu3FmRsPEjOdk7PFS/ke.suowGnQPlsZK\",\n        \"isActive\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET jednog administratora po IDu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/administrator/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET uspesno izlistavanje jednog administratora po IDu",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"88-H5ijX3A4bIYv73edC1fFHbuuXPk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:18:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 1,\n    \"username\": \"jnikola\",\n    \"passwordHash\": \"$2b$10$B39Yv/qOtNN1TUSwk7JC2ezLY/9FSqYQj71nf5e5RbGuNwoIvs2H2\",\n    \"isActive\": true\n}"
+						},
+						{
+							"name": "GET neuspesno izlistavanje administratora zbog negativnog IDa",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/-11",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"-11"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFiDB1U+dmqzx9Mo2UjcZ1SJPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:19:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "GET jednog administratora po nepostojecem IDu",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"15"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:19:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "POST novog administratora",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jnikola\",\r\n    \"password\": \"nikolaj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/administrator",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST nesuspesno dodavanje novog administratora",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jni\",\r\n    \"password\": \"nikolaj\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-U2SI1vXX59wPKzoDIaDmKjzlRF0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:17:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/username\",\n        \"schemaPath\": \"#/properties/username/minLength\",\n        \"keyword\": \"minLength\",\n        \"params\": {\n            \"limit\": 5\n        },\n        \"message\": \"must NOT have fewer than 5 characters\"\n    }\n]"
+						},
+						{
+							"name": "POST uspesno dodavanje novog administratora",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"mikamikic\",\r\n    \"password\": \"mikamikic123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-IDLmF9JWn6PNS1mzxsFtVJzfa8w\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:17:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 4,\n    \"username\": \"mikamikic\",\n    \"passwordHash\": \"$2b$10$W0Iw4FXvQkX4eCU5Z8yCcu3FmRsPEjOdk7PFS/ke.suowGnQPlsZK\",\n    \"isActive\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT promena lozinke korisnika i setovanje na neaktivan nalog",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"lozinka23\",\r\n    \"isActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/administrator/3",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT uspesna promena lozinke korisnika i setovanje na neaktivan nalog",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"lozinka23\",\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/3",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-KX1X6Gd4mKmAhjoCUjca5Obw99I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:12:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 3,\n    \"username\": \"jovicnikola\",\n    \"passwordHash\": \"$2b$10$f5UrvLVPoOe6HGpvka0CrOT0GAnMN2nZttlLNXfl1zRKrc7y9k0gu\",\n    \"isActive\": false\n}"
+						},
+						{
+							"name": "PUT neuspesan edit profila admina zbog nepostojeceg (poglesnog) ID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"lozinka23\",\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/0",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"0"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-+XVlNFF3QVK+uZrEfYPKdpfqNy0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:14:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Pogresan ID"
+						},
+						{
+							"name": "PUT nesupesan edit zbog prekratke lozinke",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"loz\",\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/3",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-h0PJreasV66VpvTg+Zv6w6xxXuw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:16:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/password\",\n        \"schemaPath\": \"#/properties/password/minLength\",\n        \"keyword\": \"minLength\",\n        \"params\": {\n            \"limit\": 5\n        },\n        \"message\": \"must NOT have fewer than 5 characters\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "DELETE  administratora po IDu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/administrator/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE  uspesno brisanje administratora po IDu",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-hitlGr+Hgo3f5+GqlTjvYSlhP10\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:43:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 4,\n    \"username\": \"mikamikic\",\n    \"passwordHash\": \"$2b$10$W0Iw4FXvQkX4eCU5Z8yCcu3FmRsPEjOdk7PFS/ke.suowGnQPlsZK\",\n    \"isActive\": false\n}"
+						},
+						{
+							"name": "DELETE neuspesno brisanje administratora zbog pogresnog  IDa",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/0",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"0"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-+XVlNFF3QVK+uZrEfYPKdpfqNy0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:45:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Pogresan ID"
+						},
+						{
+							"name": "DELETE  neuspesno brisanje administratora bog ne postojeceg IDa",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/45",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"45"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 15:46:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Korisnik",
+			"item": [
+				{
+					"name": "GET svi korsnici",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/korisnik",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET svi korsnici",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "584"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"248-6rY5oQeQfawY2p0ksFsO3LF37ns\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:22:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"korisnikId\": 3,\n        \"ime\": \"Nikola\",\n        \"prezime\": \"Jovic\",\n        \"email\": \"nikola@mail.com\",\n        \"telefon\": \"0645789456\",\n        \"passwordHash\": \"$2b$10$3nB82FE.8NyH6boMFKmlx.oZ9tL.h4t6m9KjRupwu/n2i8V6Nv4Ze\",\n        \"isActive\": true\n    },\n    {\n        \"korisnikId\": 4,\n        \"ime\": \"Milos\",\n        \"prezime\": \"Markovic\",\n        \"email\": \"milos@mail.com\",\n        \"telefon\": \"0611879654\",\n        \"passwordHash\": \"$2b$10$9VWeZhp7mafhZeK7nVYar.sMSy.XXHMWl7Kf0A8/lcTL29C9RfBsK\",\n        \"isActive\": true\n    },\n    {\n        \"korisnikId\": 7,\n        \"ime\": \"Marko\",\n        \"prezime\": \"Stefanovic\",\n        \"email\": \"marko@mail.com\",\n        \"telefon\": \"0618845712\",\n        \"passwordHash\": \"$2b$10$l89CzuYy/qXkVZ1sJmBlWuaLs2jGiC.7brcSV3uyGCmaQZtXbfCGq\",\n        \"isActive\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET jednog korisnika po IDu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/korisnik/3",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET jednog korisnika po IDu neuspesno, korisnik ne postoji sa tim IDem",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:44:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						},
+						{
+							"name": "GET jednog korisnika po IDu neuspesno, sa negativnim IDem",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/-3",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"-3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFiDB1U+dmqzx9Mo2UjcZ1SJPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:45:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "GET jednog korisnika po IDu uspesno",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c0-W3rfeo+nse7OP0NPKESjRAY1lbY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 10:22:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"korisnikId\": 3,\n    \"ime\": \"Nikola\",\n    \"prezime\": \"Jovic\",\n    \"email\": \"nikola@mail.com\",\n    \"telefon\": \"0645789456\",\n    \"passwordHash\": \"$2b$10$3nB82FE.8NyH6boMFKmlx.oZ9tL.h4t6m9KjRupwu/n2i8V6Nv4Ze\",\n    \"isActive\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "POST novog korisnika",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ime\": \"Nikola\",\r\n    \"prezime\": \"Jovic\",\r\n    \"email\": \"nikola@mail.com\",\r\n    \"telefon\": \"0645789456\",\r\n    \"password\":\"nikolajovic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/korisnik",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST uspesno dodavanje novog korisnika",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Nikola\",\r\n    \"prezime\": \"Jovic\",\r\n    \"email\": \"nikola@mail.com\",\r\n    \"telefon\": \"0645789456\",\r\n    \"password\":\"nikolajovic\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/korisnik",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "176"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b0-QYtnd+YPEd4coxIVTEMOp9YqWXg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:38:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"korisnikId\": 3,\n    \"ime\": \"Nikola\",\n    \"prezime\": \"Jovic\",\n    \"email\": \"nikola@mail.com\",\n    \"telefon\": \"0645789456\",\n    \"passwordHash\": \"$2b$10$3nB82FE.8NyH6boMFKmlx.oZ9tL.h4t6m9KjRupwu/n2i8V6Nv4Ze\"\n}"
+						},
+						{
+							"name": "POST neuspesno dodavanje novog korisnika, email vec postoji u bazi",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Marko\",\r\n    \"prezime\": \"Stefanovic\",\r\n    \"email\": \"filip@mail.com\",\r\n    \"telefon\": \"0618845712\",\r\n    \"password\":\"marko1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/korisnik",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-PQ1aVHsncyLNq6WuusXm8HYdPSw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:42:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 1062,\n    \"errorMessage\": \"Duplicate entry 'filip@mail.com' for key 'uq_korisnik_email'\"\n}"
+						},
+						{
+							"name": "POST neuspesno dodavanje novog korisnika, prekratka lozinka",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Marko\",\r\n    \"prezime\": \"Stefanovic\",\r\n    \"email\": \"marko@mail.com\",\r\n    \"telefon\": \"0618845712\",\r\n    \"password\":\"mar\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/korisnik",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-h0PJreasV66VpvTg+Zv6w6xxXuw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:43:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/password\",\n        \"schemaPath\": \"#/properties/password/minLength\",\n        \"keyword\": \"minLength\",\n        \"params\": {\n            \"limit\": 5\n        },\n        \"message\": \"must NOT have fewer than 5 characters\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "PUT edit korisnika",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ime\": \"Predrag\",\r\n    \"prezime\": \"Stankovic\",\r\n    \"email\": \"predrag@mail.com\",\r\n    \"telefon\": \"06456669784\",\r\n    \"password\":\"predrag\",\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/korisnik/5",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT edit korisnika uspesan",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Predrag\",\r\n    \"prezime\": \"Stankovic\",\r\n    \"email\": \"predrag@mail.com\",\r\n    \"telefon\": \"06456669784\",\r\n    \"password\":\"predrag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/korisnik/5",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-nGz+wIpIv5v/0YXAk0OHgXrxkzA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:48:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"korisnikId\": 5,\n    \"ime\": \"Predrag\",\n    \"prezime\": \"Stankovic\",\n    \"email\": \"predrag@mail.com\",\n    \"telefon\": \"06456669784\",\n    \"passwordHash\": \"$2b$10$0fm25kQ2SAK3T2WcRX3wHO3hYu3DATA6gLA.BPh68i37BOaSgnZTu\"\n}"
+						},
+						{
+							"name": "PUT edit korisnika sa negativnim IDem",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Predrag\",\r\n    \"prezime\": \"Stankovic\",\r\n    \"email\": \"predrag@mail.com\",\r\n    \"telefon\": \"06456669784\",\r\n    \"password\":\"predrag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/korisnik/-55",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"-55"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-+XVlNFF3QVK+uZrEfYPKdpfqNy0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:48:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Pogresan ID"
+						},
+						{
+							"name": "PUT edit nepostojeceg korisnika",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ime\": \"Predrag\",\r\n    \"prezime\": \"Stankovic\",\r\n    \"email\": \"predrag@mail.com\",\r\n    \"telefon\": \"06456669784\",\r\n    \"password\":\"predrag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/korisnik/55",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"55"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:48:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "DELETE korisnika po IDu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": null
+					},
+					"response": [
+						{
+							"name": "DELETE korisnika po IDu uspesan",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/5",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-+/zHhg+84sQie8xvQmB03Ijwjc4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:50:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Deleted 1 records.\"\n}"
+						},
+						{
+							"name": "DELETE korisnika po IDu neuspesan jer korisnik sa tim IDem ne postoji",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/5",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-fdUR+kEYPKq0iXOrFKT1mW2QMoM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 17:50:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Deleted 0 records.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Stranica",
+			"item": [
+				{
+					"name": "GET svih stranica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/stranica",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"stranica"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET svih stranica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/stranica",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4228"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1084-VZqMogDnHxbKRu7TQroptJK84cs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:18:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"stranicaId\": 1,\n        \"naziv\": \"Pravila o korišćenju bazena\",\n        \"tekst\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32. \"\n    },\n    {\n        \"stranicaId\": 2,\n        \"naziv\": \"Pravila o registarciji termina\",\n        \"tekst\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32. \"\n    },\n    {\n        \"stranicaId\": 3,\n        \"naziv\": \"Uputstvo za registarciju\",\n        \"tekst\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32.\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET strancie po IDu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/stranica/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"stranica",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET strancie po IDu uspesan",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/stranica/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1409"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"581-gUpuE8f594wFf/KrT+A6oijbhaU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:19:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stranicaId\": 1,\n    \"naziv\": \"Pravila o korišćenju bazena\",\n    \"tekst\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32. \"\n}"
+						},
+						{
+							"name": "GET strancie po IDu neuspesan negativan ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/stranica/-5",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"-5"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFiDB1U+dmqzx9Mo2UjcZ1SJPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:20:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "GET strancie po IDu neuspesan ID ne postoji",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/stranica/55",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"55"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:20:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "POST dodavanje nove stranice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"naziv\": \"Stranica neka\",\r\n    \"tekst\": \"Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document. To make your document look professionally produced, Word provides header, footer.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/stranica",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"stranica"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST dodavanje nove stranice",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"naziv\": \"Stranica neka\",\r\n    \"tekst\": \"Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document. To make your document look professionally produced, Word provides header, footer.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/stranica",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "373"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"175-vBU0dq2FQZavdAZCEWt2G6PpF90\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:22:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stranicaId\": 4,\n    \"naziv\": \"Stranica neka\",\n    \"tekst\": \"Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document. To make your document look professionally produced, Word provides header, footer.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT edit stranice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"naziv\": \"Stranica prva\",\r\n    \"tekst\": \"Promenjen tekst.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/stranica/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"stranica",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT edit stranice neuspesan negativan ID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"naziv\": \"Stranica prva\",\r\n    \"tekst\": \"Promenjen tekst.\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/stranica/-5",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"-5"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-+XVlNFF3QVK+uZrEfYPKdpfqNy0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:29:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Pogresan ID"
+						},
+						{
+							"name": "PUT edit stranice neuspesan nepostojeci ID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"naziv\": \"Stranica prva\",\r\n    \"tekst\": \"Promenjen tekst.\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/stranica/55",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"55"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:29:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						},
+						{
+							"name": "PUT edit stranice uspesan",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"naziv\": \"Stranica prva\",\r\n    \"tekst\": \"Promenjen tekst.\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/stranica/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-LB40UQIbVmJMU7YCPq5peRXmSwQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:30:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stranicaId\": 4,\n    \"naziv\": \"Stranica prva\",\n    \"tekst\": \"Promenjen tekst.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE stranice po IDu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/stranica/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"stranica",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE stranice po IDu uspesno",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/stranica/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-+/zHhg+84sQie8xvQmB03Ijwjc4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:31:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Deleted 1 records.\"\n}"
+						},
+						{
+							"name": "DELETE stranice po IDu neuspesno jer taj ID ne postoji",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/stranica/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"stranica",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-fdUR+kEYPKq0iXOrFKT1mW2QMoM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jun 2021 18:31:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Deleted 0 records.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Korisnik",
+					"item": [
+						{
+							"name": "POST novi login zahtev",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"nikola@mail.com\",\r\n    \"password\": \"nikolajovic\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/korisnik/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"korisnik",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST novi login zahtev korisnik ne postoji u bazi",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nikolajovic@mail.com\",\r\n    \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/korisnik/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"korisnik",
+												"login"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "9"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 15:41:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Not Found"
+								},
+								{
+									"name": "POST novi login zahtev uspesno",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nikola@mail.com\",\r\n    \"password\": \"nikolajovic\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/korisnik/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"korisnik",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1082"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"43a-4rA4x5pVPtVLlyBGOr65hdcaDw4\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 15:42:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"authToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWRlbnRpdGV0Ijoibmlrb2xhQG1haWwuY29tIiwicm9sZSI6ImtvcmlzbmlrIiwiaWF0IjoxNjIzNTEyNTI0LCJleHAiOjE2MjQxMTczMjQsImlzcyI6ImxvY2FsaG9zdCJ9.Wk7vtGul_cPu_tVuY0noSNrnDk94xPb5fTr6ewBElyNkqm_aVhknfSSr3b-UhpSAVen60U-zkPTC48cCrpGXpDpCzjj2o4kuIpVZztJ2ZItyjZzTKj39BCkHfGXFzdSJ6saYyiOF0FrBYc8YN86bc4jclGlyTO0ZskHgpsTgeOPSdQHfoIr8WLoUiVxo2XUzei2pYMPgc6JnTJvoZOVhQJgfI9iFVDAJct1dUAN2aq_wrAn5rp5iRPTDv06so0qWBP0DHG_rJUaem4YqBgHYuODzVgpnzaDYaqVVZ_-PDXicJIGJEozP3RXBy1o3P3dWjrv3z9jnP4WPhxmaKcxttw\",\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWRlbnRpdGV0Ijoibmlrb2xhQG1haWwuY29tIiwicm9sZSI6ImtvcmlzbmlrIiwiaWF0IjoxNjIzNTEyNTI0LCJleHAiOjE2NTUwNDg1MjQsImlzcyI6ImxvY2FsaG9zdCJ9.d6GzY0lNBSB6UV_yVYa5Zkk42zvx3XvfBSjBXDB5d7ssogQFwOB5gYcF0d6Vg0MeputbwHP5LAbgLE-BiS8AIETvSTh1P3xSnGG4ufBtyjiUzwvt_28s_eIQqhGWUSWZvp21R-0oxwFBQ7m-bGvg6LFVUL_jvnqelEoLyjGpB2VeN1RyqJCoIAGpFq_x3RCK6dyyFuPgQ4TCBQ4tjp8faZOPb97AZD9i5yev9BinwS9wmlsP5Uz-V1B_4nibi7oCsA0qln_p7BGAd6tnqH4mgjPQsabpW1ayKZkzAJhapGnlELroqSzf8WZk1dnuhQtazRihnSKY2lZQGeJcasjE-w\"\n}"
+								},
+								{
+									"name": "POST novi login zahtev sa pogresnom lozinkom",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nikola@mail.com\",\r\n    \"password\": \"nikola\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/korisnik/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"korisnik",
+												"login"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "17"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"11-PDSQIL3Dy7iJVzct3UWL+DZNtcI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 15:42:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Pogresna lozinka."
+								}
+							]
+						},
+						{
+							"name": "POST novog tokenRefresh zahteva",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWRlbnRpdGV0Ijoiam92aWNAbWFpbC5jb20iLCJyb2xlIjoia29yaXNuaWsiLCJpYXQiOjE2MjM3NjA3MjksImV4cCI6MTY1NTI5NjcyOSwiaXNzIjoibG9jYWxob3N0In0.JVYgcYY35fPXwYjSW65d2cZLTaAlnK6aDb__0aBNmQY4rdWBYlot1XeLFlw1g_LC4O9zV0pDThLlu8W8buEKI_oLISSQ4EmYjIZnXD-NkHodwZ9ezkD6iQk1FtdIVEGd-JwNx3PM0LZcwc7Po29ajajcFSbOioqCHmpy71hiEpvi8t4dc-bobazQlqXDJDdeD4SdRLI_loLDx2eb8p5guxvMBinkJkDEzuMVoD5MgHAP_hIVQ24HlOkR-OlZF_YR0ZtF3dLIO_wumtccLu6cFbA4hfL8N_qFd59I0RVjGhq0Jvo4errg4n7tDlJHsu7gS9xvMY2YThkWiFn13wfGAg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/korisnik/refresh",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"korisnik",
+										"refresh"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST novog tokenRefresh zahteva bez tokena",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"refreshToken\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/korisnik/refresh",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"korisnik",
+												"refresh"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:3000"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "43"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2b-xnXyNLUHmOEF64WAWgWQDNhZTi4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Jun 2021 12:20:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Invalid refresh token: jwt must be provided"
+								},
+								{
+									"name": "POST novog tokenRefresh zahteva pogresnim tokenom",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"refreshToken\": \"123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/korisnik/refresh",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"korisnik",
+												"refresh"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:3000"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "36"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24-Cv7RxFtqE6HLKrPqagpaeWKpU2Q\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Jun 2021 12:21:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Invalid refresh token: jwt malformed"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Administrator",
+					"item": [
+						{
+							"name": "POST novi login zahtev administratora",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jnikola\",\r\n    \"password\": \"nikolaj\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/administrator/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"administrator",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST novi login zahtev administratora uspesan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"jnikola\",\r\n    \"password\": \"nikolaj\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1074"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"432-upUl7Vq/20HnN+rHy3WPKP7whIs\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 16:10:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"authToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjIzNTE0MjQyLCJleHAiOjE2MjQxMTkwNDIsImlzcyI6ImxvY2FsaG9zdCJ9.vri6HKunLDlLA9p6Aw634qpm-CwhtbMxhEGAVKux4qW7cR95BS0zxIC1YtV68f0nZf3-ElPXFFYcIIrY8aaFljLQNZmVp21vHXX7XwfqT2ZKaeO5y3LOsw7_3_8tplK05EEBjIlCu7SzGaaP2gA54CaUu9sJswx5TI6Ou5shU3ZIkOsWK8QiaFll4O8G7L-S4ZF8HxCnGLS3lgKijxBxERhnh5iGwuSyJCO67C8SztYQO7itdKPG3K3MB315QloEhbVwnrdprb_YqdlOKP5asXqgzW-Dm28NA4iH9LNJYqKhT3g2dO0Yyu8Jpv6KH-zsjN-XuVFpdX0snggL3Nk4-A\",\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjIzNTE0MjQyLCJleHAiOjE2NTUwNTAyNDIsImlzcyI6ImxvY2FsaG9zdCJ9.oAEfFKbUOlZ59UXpbFSyjWxZz_8lvfh3P0PNa2qBS4CU79U-9OmHjJFWoY0gruZ5NNvmVQJm-75zjKWoMEuXXDgSr3FM95fQBvlNMpGQudJYz34unW_Pkx-ec2qJY4RuOWqZUo9PE7s-PZZjsdiR8Hu912QYcreNZoVWvmhbIejrd_U6GBU1qgVycugF_lXMlSlt5mlijId3ZImTvtH2Cx2LfhAPfh_-RtxuR1M0HDRmZ4Vaz2qy2-x7gPb0gE9KrxgRcWWDxpcjIHrnGz_MOQGytLwEwdxyL2seOx1ET_rqwW1tTmzrl0Al0jtiqNCWvYxOKBhQSJGpkFjEdrIT7Q\"\n}"
+								},
+								{
+									"name": "POST novi login zahtev administratora sa pogresnom lozinkom",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"jnikola\",\r\n    \"password\": \"nikolaj123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"login"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "17"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"11-PDSQIL3Dy7iJVzct3UWL+DZNtcI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 16:11:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Pogresna lozinka."
+								},
+								{
+									"name": "POST novi login zahtev administratora sa pogresnim username",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"jnikola123\",\r\n    \"password\": \"nikolaj123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"login"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "9"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 16:13:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Not Found"
+								},
+								{
+									"name": "POST novi login zahtev administratora za nalog koji je suspendovan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"jovicnikola\",\r\n    \"password\": \"nikolajovic\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"login"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "20"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14-cbZRbeaQmyqj+Sb3knh9rM4cSms\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 12 Jun 2021 16:19:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Nalog je suspendovan"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rezervacija termina",
+			"item": [
+				{
+					"name": "POST rezervacija termina",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/korisnik/3/termini/15",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik",
+								"3",
+								"termini",
+								"15"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST rezervacija termina korisnik je vec rezervisao termin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3/termini/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3",
+										"termini",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6d-ueMN7/eImdVAZ+dfryuk1Ew3be8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:31:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 1062,\n    \"errorMessage\": \"Duplicate entry '3-15' for key 'uq_korisnik_termin_korisnik_id_termin_id'\"\n}"
+						},
+						{
+							"name": "POST rezervacija termina pogresan ID termina",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3/termini/-15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3",
+										"termini",
+										"-15"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-npylZzzBS2xKLpOzHEfM+cWl1GY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:31:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Nepostojeci id"
+						},
+						{
+							"name": "POST rezervacija termina pogresan ID korisnika",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/-3/termini/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"-3",
+										"termini",
+										"15"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-npylZzzBS2xKLpOzHEfM+cWl1GY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:32:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Nepostojeci id"
+						},
+						{
+							"name": "POST rezervacija termina uspesna",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3/termini/13",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3",
+										"termini",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:32:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE otkazivanje(brisanje) rezervacije",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/korisnik/3/termini/15",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"korisnik",
+								"3",
+								"termini",
+								"15"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE otkazivanje(brisanje) rezervacije uspesno",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3/termini/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3",
+										"termini",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-qr5SYIA1XS/WZUN4BS1eq8KisXs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:47:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Uspesno obrisano\"\n}"
+						},
+						{
+							"name": "DELETE otkazivanje(brisanje) rezervacije neuspesno jer ne postoji takav zapis u bazi",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3/termini/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3",
+										"termini",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-LtfLyM3TSuUubFunx1za8/MFMNU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:47:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": -1,\n    \"errorMessage\": \"Neuspesno obrisano\"\n}"
+						},
+						{
+							"name": "DELETE otkazivanje(brisanje) rezervacije pogresan ID termina",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/3/termini/-15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"3",
+										"termini",
+										"-15"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-+XVlNFF3QVK+uZrEfYPKdpfqNy0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:48:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Pogresan ID"
+						},
+						{
+							"name": "DELETE otkazivanje(brisanje) rezervacije pogresan ID korisnika",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/korisnik/-3/termini/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"korisnik",
+										"-3",
+										"termini",
+										"15"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-+XVlNFF3QVK+uZrEfYPKdpfqNy0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 20:48:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Pogresan ID"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:40080"
+		},
+		{
+			"key": "API_USER_AUTH_TOKEN",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWRlbnRpdGV0Ijoibmlrb2xhQG1haWwuY29tIiwicm9sZSI6ImtvcmlzbmlrIiwiaWF0IjoxNjIzNTEyNTI0LCJleHAiOjE2MjQxMTczMjQsImlzcyI6ImxvY2FsaG9zdCJ9.Wk7vtGul_cPu_tVuY0noSNrnDk94xPb5fTr6ewBElyNkqm_aVhknfSSr3b-UhpSAVen60U-zkPTC48cCrpGXpDpCzjj2o4kuIpVZztJ2ZItyjZzTKj39BCkHfGXFzdSJ6saYyiOF0FrBYc8YN86bc4jclGlyTO0ZskHgpsTgeOPSdQHfoIr8WLoUiVxo2XUzei2pYMPgc6JnTJvoZOVhQJgfI9iFVDAJct1dUAN2aq_wrAn5rp5iRPTDv06so0qWBP0DHG_rJUaem4YqBgHYuODzVgpnzaDYaqVVZ_-PDXicJIGJEozP3RXBy1o3P3dWjrv3z9jnP4WPhxmaKcxttw"
+		},
+		{
+			"key": "API_ADMINISTRATOR_AUTH_TOKEN",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjIzNTE0MjQyLCJleHAiOjE2MjQxMTkwNDIsImlzcyI6ImxvY2FsaG9zdCJ9.vri6HKunLDlLA9p6Aw634qpm-CwhtbMxhEGAVKux4qW7cR95BS0zxIC1YtV68f0nZf3-ElPXFFYcIIrY8aaFljLQNZmVp21vHXX7XwfqT2ZKaeO5y3LOsw7_3_8tplK05EEBjIlCu7SzGaaP2gA54CaUu9sJswx5TI6Ou5shU3ZIkOsWK8QiaFll4O8G7L-S4ZF8HxCnGLS3lgKijxBxERhnh5iGwuSyJCO67C8SztYQO7itdKPG3K3MB315QloEhbVwnrdprb_YqdlOKP5asXqgzW-Dm28NA4iH9LNJYqKhT3g2dO0Yyu8Jpv6KH-zsjN-XuVFpdX0snggL3Nk4-A"
+		}
+	]
+}

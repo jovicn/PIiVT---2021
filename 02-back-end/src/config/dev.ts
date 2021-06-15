@@ -22,12 +22,12 @@ const Config: IConfig = {
             algorithm:"RS256",
             izdavac: "localhost",
             auth:{
-                trajanje: 60*60*24*7,
+                trajanje: 60 * 60 * 24 * 7,
                 public: readFileSync("keystore/korisnik-auth.public", "utf-8"),
                 private:readFileSync("keystore/korisnik-auth.private", "utf-8"),
             },
             refresh:{
-                trajanje: 60*60*24*365,
+                trajanje: 60 * 60 * 24*365,
                 public: readFileSync("keystore/korisnik-refresh.public", "utf-8"),
                 private:readFileSync("keystore/korisnik-refresh.private", "utf-8"),
             }
@@ -41,12 +41,12 @@ const Config: IConfig = {
                 private:readFileSync("keystore/administrator-auth.private", "utf-8"),
             },
             refresh:{
-                trajanje: 60*60*24*365,
+                trajanje: 60 * 60 * 24 * 365,
                 public: readFileSync("keystore/administrator-refresh.public", "utf-8"),
                 private:readFileSync("keystore/administrator-refresh.private", "utf-8"),
             },
         },
-        dozvoliReqZaNevazeceTokene: true,
+        dozvoliReqZaNevazeceTokene: false,
     },
 
 

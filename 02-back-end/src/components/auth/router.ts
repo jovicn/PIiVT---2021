@@ -10,6 +10,9 @@ class AuthRouter implements IRouter{
 
         application.post("/auth/korisnik/login", authController.korisnikLogin.bind(authController));
         application.post("/auth/administrator/login", authController.administratorLogin.bind(authController));
+
+        application.post("/auth/korisnik/refresh", authController.korisnikRefresh.bind(authController));
+        application.post("/auth/administrator/refresh", authController.administratorRefresh.bind(authController));
     }
 
 }
