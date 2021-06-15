@@ -30,6 +30,7 @@ interface IConfig{
      auth: {
          korisnik: TokenOptions,
          administrator: TokenOptions,
+         dozvoliReqZaNevazeceTokene: boolean,
 
          },
      

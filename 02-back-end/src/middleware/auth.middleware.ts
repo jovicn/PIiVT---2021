@@ -13,6 +13,10 @@ interface TokenValidationInformation{
 export default class AuthMiddleware{
     private static verifyAuthToken(req: Request, res: Response, next: NextFunction, podrzanePozicije: pozicija[]){
 
+        if(Config.auth.dozvoliReqZaNevazeceTokene){
+            return next();
+        }
+
         if(typeof req.headers.authorization !== "string"){
             return res.status(401).send("Niste autorizovani");
         }
