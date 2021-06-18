@@ -2,7 +2,7 @@ import Ajv from "ajv";
 
 interface IAddTermin {
 
-    vreme: string;
+    zakazanAt: string;
     status: "aktivan" | "otkazan";
     bazenId: number;
 }
@@ -12,7 +12,7 @@ const ajv = new Ajv();
 const IAddTerminValidator = ajv.compile({
     type: "object",
     properties: {
-        vreme:{
+        zakazanAt:{
             type: "string",
             pattern:"^[0-9]{4}\-[0-9]{2}\-[0-9]{2} [0-9]{2}\:[0-9]{2}\:[0-9]{2}$",
         },
@@ -28,7 +28,7 @@ const IAddTerminValidator = ajv.compile({
     },
 
     required: [
-        "vreme",
+        "zakazanAt",
         "bazenId",
     ],
 

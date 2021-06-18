@@ -4,7 +4,7 @@ import BazenModel from '../bazen/model';
 class TerminModel implements IModel {
 
     terminId: number;
-    vreme: string;
+    zakazanAt: string;
     status: "aktivan"|"otkazan";
     bazenId: number;
     bazen: BazenModel | null;

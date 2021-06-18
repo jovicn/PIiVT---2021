@@ -2,6 +2,7 @@ import IRouter from "../../common/IRouter.interface";
 import * as express from 'express';
 import IApplicationResorces from "../../common/IApplicationResorces.interface";
 import KorisnikController from "./controller";
+import AuthMiddleware from "../../middleware/auth.middleware";
 
 class KorisnikRouter implements IRouter{
 
@@ -9,11 +10,11 @@ class KorisnikRouter implements IRouter{
 
         const korisnikController: KorisnikController = new KorisnikController(resources);
 
-        application.get("/korisnik", korisnikController.getAll.bind(korisnikController));
-        application.get("/korisnik/:id", korisnikController.getById.bind(korisnikController));
-        application.post("/korisnik", korisnikController.add.bind(korisnikController));
-        application.put("/korisnik/:id", korisnikController.edit.bind(korisnikController));
-        application.delete("/korisnik/:kid", korisnikController.delete.bind(korisnikController));
+        application.get("/korisnik", AuthMiddleware.getVerifier("administrator"),korisnikController.getAll.bind(korisnikController));
+        application.get("/korisnik/:id", AuthMiddleware.getVerifier("administrator"),korisnikController.getById.bind(korisnikController));
+        application.post("/korisnik", AuthMiddleware.getVerifier("administrator"),korisnikController.add.bind(korisnikController));
+        application.put("/korisnik/:id", AuthMiddleware.getVerifier("administrator"),korisnikController.edit.bind(korisnikController));
+        application.delete("/korisnik/:kid",AuthMiddleware.getVerifier("administrator"),korisnikController.delete.bind(korisnikController));
     }
 
 }

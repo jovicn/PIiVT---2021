@@ -8,6 +8,7 @@ import * as jwt from "jsonwebtoken";
 import Config from '../../config/dev';
 import { IAdministratorLogin, IAdministratorLoginValidator } from "./dto/IAdministratorLogin";
 import {IRefreshToken, IRefreshTokenValidator } from "./dto/IRefreshToken";
+import { Console } from "console";
 
 
 
@@ -147,9 +148,9 @@ export default class AuthController extends BaseController{
             const tokenString: string = (req.body as IRefreshToken).refreshToken;
             
             try {
-                console.log("usao u try");
+              
                 const existingData = jwt.verify(tokenString, Config.auth[role].auth.public) as ITokenData;
-                console.log(existingData);
+                
                 const newTokenData: ITokenData = {
                     id: existingData.id,
                     identitet: existingData.identitet,
@@ -171,6 +172,7 @@ export default class AuthController extends BaseController{
                     refreshToken: null,
                 });
             } catch (e) {
+                //console.log(e);
                 return res.status(400).send("Invalid refresh token: " + e?.message);
             }
         }

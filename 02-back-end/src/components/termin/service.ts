@@ -19,7 +19,7 @@ class TerminService extends BaseService<TerminModel>{
         const item: TerminModel = new TerminModel();
 
         item.terminId = +(data?.termin_id);
-        item.vreme = data?.vreme;
+        item.zakazanAt = data?.zakazan_at;
         item.status = data?.status;
         item.bazenId = +(data?.bazen_id);
         
@@ -108,9 +108,9 @@ class TerminService extends BaseService<TerminModel>{
 
     public async add(data: IAddTermin): Promise<TerminModel|IErrorResponse>{
         return new Promise<TerminModel|IErrorResponse>(resolve =>{
-            const sql = "INSERT termin SET vreme = ?, bazen_id = ?";
+            const sql = "INSERT termin SET zakazan_at = ?, bazen_id = ?";
 
-            this.db.execute(sql, [data.vreme, data.bazenId])
+            this.db.execute(sql, [data.zakazanAt, data.bazenId])
             .then(async rezultat =>{
                 const insertInfo: any = rezultat[0];
                 const noviId: number = +(insertInfo?.insertId);
@@ -139,8 +139,8 @@ class TerminService extends BaseService<TerminModel>{
         }
 
         return new Promise<TerminModel|IErrorResponse>(async resolve => {
-            const sql = `UPDATE termin SET vreme = ?, status = ? WHERE termin_id = ?;`;
-            this.db.execute(sql , [ data.vreme, data.status, terminId ])
+            const sql = `UPDATE termin SET zakazan_at = ?, status = ? WHERE termin_id = ?;`;
+            this.db.execute(sql , [ data.zakazanAt, data.status, terminId ])
             .then(async rezultat => {
                 resolve(await this.getById(terminId));
             })

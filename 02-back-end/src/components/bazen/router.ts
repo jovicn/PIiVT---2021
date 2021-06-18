@@ -12,10 +12,10 @@ class BazenRouter implements IRouter{
         const bazenController: BazenController = new BazenController(resources);
 
         application.get("/bazen", AuthMiddleware.getVerifier("administrator", "korisnik"), bazenController.getAll.bind(bazenController));
-        application.get("/bazen/:id", bazenController.getById.bind(bazenController));
-        application.post("/bazen", bazenController.add.bind(bazenController));
-        application.put("/bazen/:id", bazenController.edit.bind(bazenController));
-        application.delete("/bazen/:id", bazenController.deleteById.bind(bazenController));
+        application.get("/bazen/:id", AuthMiddleware.getVerifier("administrator", "korisnik"), bazenController.getById.bind(bazenController));
+        application.post("/bazen", AuthMiddleware.getVerifier("administrator"), bazenController.add.bind(bazenController));
+        application.put("/bazen/:id", AuthMiddleware.getVerifier("administrator"), bazenController.edit.bind(bazenController));
+        application.delete("/bazen/:id", AuthMiddleware.getVerifier("administrator"), bazenController.deleteById.bind(bazenController));
     }
 
 }

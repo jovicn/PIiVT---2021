@@ -48,13 +48,6 @@ export default class AuthMiddleware{
         }
 
 
-        try{
-            rezultat = jwt.verify(tokenString, Config.auth.korisnik.auth.public);
-        }catch(e){
-            return res.status(500).send("Validacija tokena neuspesna " + e?.message)
-
-        }
-
         if(typeof rezultat !== "object"){
             return res.status(400).send("Los token");
         }

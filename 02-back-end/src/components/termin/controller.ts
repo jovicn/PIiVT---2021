@@ -82,7 +82,7 @@ class TerminController extends BaseController{
     public async add(req: Request, res: Response, next: NextFunction){
         const item = req.body;
 
-        if (new Date(item.vreme).getTime() <= new Date().getTime()) { 
+        if (new Date(item.zakazanAt).getTime() <= new Date().getTime()) { 
             res.sendStatus(400);
             return;
          }

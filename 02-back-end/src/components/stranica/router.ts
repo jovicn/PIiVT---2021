@@ -2,6 +2,7 @@ import IRouter from "../../common/IRouter.interface";
 import * as express from 'express';
 import IApplicationResorces from "../../common/IApplicationResorces.interface";
 import StranicaController from "./controller";
+import AuthMiddleware from "../../middleware/auth.middleware";
 
 class StranicaRouter implements IRouter{
 
@@ -9,11 +10,11 @@ class StranicaRouter implements IRouter{
 
         const stranicaController: StranicaController = new StranicaController(resources);
 
-        application.get("/stranica", stranicaController.getAll.bind(stranicaController));
-        application.get("/stranica/:id", stranicaController.getById.bind(stranicaController));
-        application.post("/stranica", stranicaController.add.bind(stranicaController));
-        application.put("/stranica/:id", stranicaController.edit.bind(stranicaController));
-        application.delete("/stranica/:sid", stranicaController.delete.bind(stranicaController));
+        application.get("/stranica", AuthMiddleware.getVerifier("administrator"),stranicaController.getAll.bind(stranicaController));
+        application.get("/stranica/:id", AuthMiddleware.getVerifier("administrator"),stranicaController.getById.bind(stranicaController));
+        application.post("/stranica", AuthMiddleware.getVerifier("administrator"),stranicaController.add.bind(stranicaController));
+        application.put("/stranica/:id", AuthMiddleware.getVerifier("administrator"),stranicaController.edit.bind(stranicaController));
+        application.delete("/stranica/:sid", AuthMiddleware.getVerifier("administrator"),stranicaController.delete.bind(stranicaController));
     }
 
 }
