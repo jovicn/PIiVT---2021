@@ -783,7 +783,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "{{API_USER_AUTH_TOKEN}}",
+						"value": "{{API_ADMINISTRATOR_AUTH_TOKEN}}",
 						"type": "string"
 					}
 				]
@@ -1653,6 +1653,36 @@
 						}
 					]
 				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{API_USER_AUTH_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2483,6 +2513,36 @@
 						}
 					]
 				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{API_USER_AUTH_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3312,6 +3372,36 @@
 						}
 					]
 				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{API_USER_AUTH_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -4022,6 +4112,36 @@
 						}
 					]
 				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -4423,8 +4543,108 @@
 									],
 									"cookie": [],
 									"body": "Invalid refresh token: jwt malformed"
+								},
+								{
+									"name": "POST novog tokenRefresh zahteva uspesno",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n     \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWRlbnRpdGV0Ijoibmlrb2xhQG1haWwuY29tIiwicm9sZSI6ImtvcmlzbmlrIiwiaWF0IjoxNjI0MDIyODExLCJleHAiOjE2NTU1NTg4MTEsImlzcyI6ImxvY2FsaG9zdCJ9.yRydjRZgZS6PmWtZYxu2RTZEyc_JqZOmJkudC7V0Z0NoInGnNYC_Sj9ji3_2Iz-MBDJNcMl4v6_1atLcGOWoMWGOwoht4h3hY5O_C4tlahp6USItESb4kSCHDcRO7HHc083U8mQ8YtdsJ9gsfPKaAVlLSrD3bRuuWaBOY-s3j1YozD0no3lGUclvv-25QWfEGWX9GqoL9XIhudcc6Hbl97ZQ5Y5UEBwMN4bQ8i6IAb_D8_m0HqX_JHKH3sCB5U3LFEbmlBV2hRDh6__KFePp-VsiNrJHUORm58JaqOmmRQr2V5d_MpZJxynSrNAhGZxQjd26ERmtYUdH3Y2qxbN6WQ\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/korisnik/refresh",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"korisnik",
+												"refresh"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:3000"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "560"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"230-zB35h71e/bqM6Iy98sIcZDcDDqw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 18 Jun 2021 13:27:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"authToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWRlbnRpdGV0Ijoibmlrb2xhQG1haWwuY29tIiwicm9sZSI6ImtvcmlzbmlrIiwiaWF0IjoxNjI0MDIyODQ5LCJleHAiOjE2MjQ2Mjc2NDksImlzcyI6ImxvY2FsaG9zdCJ9.UhFkBwpCpL-NdYUzVtFqqCSKSCsZ6jNwNBFcU9XUasFY9Fi-EvxrfUpCijYq4c6Y9Z6TdL8OTywzLaEEFgwDyThIgmwTBduBtYn4PbqDJppjB_0rcEvFAj2BhxgLOXVP1ngyVdTglu7uzLPMERJoYyetkIZr3KCaM_27-o13I9sHT2lA9cLjCj0q4AHoeqZ8cmXwwdjeYHBGGHj6Mbl7F_2pCuc06JUX0GpB2vDPc7KuhuOQC3EgRm-lKfCrtzqc0xr95IDH-iXA3NJfeoq255j-Wk1hsd7h_gN_Hd4T3FQ0ddeY1aw5qfTCcoqm6C0zGBX2wn1HSSjtq7Wi4gcdxA\",\n    \"refreshToken\": null\n}"
 								}
 							]
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					]
 				},
@@ -4721,6 +4941,245 @@
 									],
 									"cookie": [],
 									"body": "Nalog je suspendovan"
+								}
+							]
+						},
+						{
+							"name": "POST novog token refresha",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n      \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjI0MDIyNTkxLCJleHAiOjE2NTU1NTg1OTEsImlzcyI6ImxvY2FsaG9zdCJ9.PCIpjYqtTfJagU9ByxIlHUhWuKpD9U9BfUPTLlIla25VbdI2xQ2f9i2aFwZo6lC6iSVmakKW4FHNFtt37PWm9EASRXbdIsHm3E5oLGxW0GO2ddc1977XbC_Rmnwc5rZ04QYZUVuPr_YmTxhx6t9WcqfQE1sZmBqs41MM2O38WH1wUbGrhuLVWqpgYDEZybhbMi1LGEZ2pvro3L4U2FIOAe7XQLZzN-XaRH0CRwJzKCwxusDng_nqnZPBmmViTgQj8nxDQWQFSxRGV5ikrE3k1qwuwSSZNxnNqCUpBTJpPK8PM4c6chU8wHT94bQSKaAyqIh22Q5ZEeSfVbnfZUgKBA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/administrator/refresh",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"administrator",
+										"refresh"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST novog refresh tokena uspesno",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n      \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjI0MDIyNTkxLCJleHAiOjE2NTU1NTg1OTEsImlzcyI6ImxvY2FsaG9zdCJ9.PCIpjYqtTfJagU9ByxIlHUhWuKpD9U9BfUPTLlIla25VbdI2xQ2f9i2aFwZo6lC6iSVmakKW4FHNFtt37PWm9EASRXbdIsHm3E5oLGxW0GO2ddc1977XbC_Rmnwc5rZ04QYZUVuPr_YmTxhx6t9WcqfQE1sZmBqs41MM2O38WH1wUbGrhuLVWqpgYDEZybhbMi1LGEZ2pvro3L4U2FIOAe7XQLZzN-XaRH0CRwJzKCwxusDng_nqnZPBmmViTgQj8nxDQWQFSxRGV5ikrE3k1qwuwSSZNxnNqCUpBTJpPK8PM4c6chU8wHT94bQSKaAyqIh22Q5ZEeSfVbnfZUgKBA\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/refresh",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"refresh"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:3000"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "556"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"22c-d65zZ/0WjNsKJIC8LIfx4akkQ2A\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 18 Jun 2021 13:23:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"authToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjI0MDIyNjMyLCJleHAiOjE2MjQ2Mjc0MzIsImlzcyI6ImxvY2FsaG9zdCJ9.d4kQMB5gHrxrbg_kuXLmjVM_YLLjeAEQXYZJxcPkx8_D3tMvEc0W4a29Eo3oE4Yf-vywwxRX2utIB40FbC-xSEgV0bwB_VEhKPbjOn2FOlYThr1ops40GVcH8nIRDnmBiRccXqjRXT2dLwE5VB7qZMGtgOqyujdQUvCLHno6_1vakjwCa5pPQzE961fl8R1qZNRsxJyw2zwojO_HBDT0k80GcCjMuZLzRM6qamGhHpilYMPXWj_h2NKzk_3snTtA6c2GkxpidaNtgl9V--16evPEI4suQsTC22Ho7ne8O9HWSGPaohUUkW7yGdYHaRhRsn3FRRSUJwKHHix6mNwDBg\",\n    \"refreshToken\": null\n}"
+								},
+								{
+									"name": "POST novog refresh tokena neuspesno jer tokene ne postoji",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n      \"refreshToken\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/refresh",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"refresh"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:3000"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "43"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2b-xnXyNLUHmOEF64WAWgWQDNhZTi4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 18 Jun 2021 13:29:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Invalid refresh token: jwt must be provided"
+								},
+								{
+									"name": "POST novog refresh tokena sa pogresnim tokenom",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n      \"refreshToken\": \"1234werfwd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/administrator/refresh",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"administrator",
+												"refresh"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:3000"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "36"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24-Cv7RxFtqE6HLKrPqagpaeWKpU2Q\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 18 Jun 2021 13:29:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "Invalid refresh token: jwt malformed"
 								}
 							]
 						}
@@ -5233,6 +5692,36 @@
 						}
 					]
 				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{API_USER_AUTH_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		}
 	],
@@ -5267,7 +5756,7 @@
 		},
 		{
 			"key": "API_ADMINISTRATOR_AUTH_TOKEN",
-			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWRlbnRpdGV0Ijoiam5pa29sYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjIzNTE0MjQyLCJleHAiOjE2MjQxMTkwNDIsImlzcyI6ImxvY2FsaG9zdCJ9.vri6HKunLDlLA9p6Aw634qpm-CwhtbMxhEGAVKux4qW7cR95BS0zxIC1YtV68f0nZf3-ElPXFFYcIIrY8aaFljLQNZmVp21vHXX7XwfqT2ZKaeO5y3LOsw7_3_8tplK05EEBjIlCu7SzGaaP2gA54CaUu9sJswx5TI6Ou5shU3ZIkOsWK8QiaFll4O8G7L-S4ZF8HxCnGLS3lgKijxBxERhnh5iGwuSyJCO67C8SztYQO7itdKPG3K3MB315QloEhbVwnrdprb_YqdlOKP5asXqgzW-Dm28NA4iH9LNJYqKhT3g2dO0Yyu8Jpv6KH-zsjN-XuVFpdX0snggL3Nk4-A"
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWRlbnRpdGV0IjoibWlsb3NtIiwicm9sZSI6ImFkbWluaXN0cmF0b3IiLCJpYXQiOjE2MjQwMTc4MjUsImV4cCI6MTYyNDYyMjYyNSwiaXNzIjoibG9jYWxob3N0In0.sUrj2-PPf3l9ZHoUK364xTlNoT-MNwFf3LfC9RT4kQeYfxtzv-ZwrpUwND2pc7Hfz9gnjZHZo96FfNcuuXHsxjcERilsjJ9S9xRo9b_VLif8d5AOP87qBs1BNkOMcsaiC8_Sg9gKZ-R4VcbZ-vwtL-BN4zM7Z3Q2b_dvb-aHU_ZnwkDT4M2zCgT4DqgAU3Tr4Kh3zTua1N6rS6thB7VEqAeSVOVwvo-HTm-1HUfuR5-p40BiBlqTcIKCsy1RM_Oq5IJhH9EGrcnaM7UDIjcLl9k_2OZkqds0J6kJD1h6PqzOGLLTM4EFhHiu6gIKNTfENEikL35_Yz8bYz_UXpNFXw"
 		}
 	]
 }
